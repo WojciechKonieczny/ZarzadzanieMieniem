@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// home to routing odwrotny do strony glownej
 Route::get('/', function () {
     return view('welcome');
-});
+}) -> name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
