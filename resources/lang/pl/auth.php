@@ -13,6 +13,8 @@ return [
     |
     */
 
+    'login' => 'Zaloguj się',
+    'register' => 'Zarejestruj się',
     'failed' => 'Wprowadzono nieprawidłowe poświadczenia',
     'password' => 'Podane hasło jest niewłaściwe',
     'throttle' => 'Zbyt duża ilość prób. Spróbuj ponownie za :seconds sekund.',
@@ -20,6 +22,7 @@ return [
     'confirm_pass_info' => 'Wymagane jest dodatkowe uwierzytelnianie poprzez wprowadzenie hasła',
     'forgot_pass_info' => 'Jeśli nie pamiętasz hasła, wprowadź swój email, na który wyślemy link do zresetowania poświadczeń',
     'verify_link_info' => 'Link do weryfikacji konta, został wysłany na podany adres email',
+    'verify_addres_info' => 'Dziękujemy za zarejestrowanie się. Aby dokończyć tworzenie konta, wejdź na swoją skrzynkę i kliknij w wysłany link',
 
     'inputs' => [
         'email' => 'Email',
@@ -31,6 +34,7 @@ return [
 
     'buttons' => [
         'login' => 'Zaloguj',
+        'logout' => 'Wyloguj',
         'register' => "Zarejestruj",
         'confirm' => 'Potwierdź',
         'reset_pass_link' => 'Wyślij link',
