@@ -12,7 +12,7 @@
     </x-slot>
 
     {{-- zostanie zaladowane do komponentu Base pod zmienna $slot --}}
-    <div class="form">
+    <div class="form container">
         {{ $slot }}
     </div>
 

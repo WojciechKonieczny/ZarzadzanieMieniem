@@ -1,11 +1,5 @@
 <x-guest-layout>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/" class="d-flex justify-content-center mb-4">
-                <x-application-logo width=64 height=64 />
-            </a>
-        </x-slot>
-
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
@@ -14,21 +8,21 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="name" :value="__('auth.inputs.name')" />
 
                 <x-input id="name" class="" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="email" :value="__('auth.inputs.email')" />
 
                 <x-input id="email" class="" type="email" name="email" :value="old('email')" required />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('auth.inputs.password')" />
 
                 <x-input id="password" class=""
                                 type="password"
@@ -38,7 +32,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('auth.inputs.confirm_pass')" />
 
                 <x-input id="password_confirmation" class=""
                                 type="password"
@@ -47,11 +41,11 @@
 
             <div class="d-flex justify-content-end mt-4">
                 <a class="text-muted" href="{{ route('login') }}" style="margin-right: 15px; margin-top: 15px;">
-                    {{ __('Already registered?') }}
+                    {{ __('auth.other.already_registered') }}
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('auth.buttons.register') }}
                 </x-button>
             </div>
         </form>

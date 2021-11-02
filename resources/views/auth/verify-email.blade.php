@@ -7,12 +7,12 @@
         </x-slot>
 
         <div class="mb-4 text-muted">
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+            {{ __('auth.verify_address_info') }}
         </div>
 
         @if (session('status') == 'verification-link-sent')
             <div class="mb-4 text-success">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+                {{ __('auth.verify_link_info') }}
             </div>
         @endif
 
@@ -22,7 +22,7 @@
 
                 <div>
                     <x-button>
-                        {{ __('Resend Verification Email') }}
+                        {{ __('auth.buttons.reset_verification_link') }}
                     </x-button>
                 </div>
             </form>
@@ -31,7 +31,7 @@
                 @csrf
 
                 <button type="submit" class="btn btn-link">
-                    {{ __('Log out') }}
+                    {{ __('auth.buttons.logout') }}
                 </button>
             </form>
         </div>
