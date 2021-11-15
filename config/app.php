@@ -232,7 +232,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
     ],
+
+    /*
+    * Role pobierane z pliku .env
+    */
+    'user_role' => env( 'USER_ROLE', 'user' ),
+    'admin_role' => env( 'ADMIN_ROLE', 'admin' ),
 
 ];
