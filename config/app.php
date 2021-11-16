@@ -176,9 +176,14 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /*
-        * Permissions and roles
+        * Role i uprawnienia
         */
         Spatie\Permission\PermissionServiceProvider::class,
+
+        /*
+        * Logi aplikacji
+        */
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
     ],
 
     /*
