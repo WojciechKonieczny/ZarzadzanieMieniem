@@ -16,6 +16,11 @@ class PermissionsSeeder extends Seeder {
 
 
         /*
+        *  Uprawnienia od logów (log-viewer)
+        */
+        $logsIndex = Permission::create( ['name' => 'log-viewer.index'] );
+
+        /*
         * Uprawnienia od użytkowników
         */
         $usersIndex = Permission::create( ['name' => 'users.index'] ); // wyswietlanie
@@ -70,6 +75,7 @@ class PermissionsSeeder extends Seeder {
         */
         $adminRole = Role::findByName( config('app.admin_role') ); 
         $adminRole->givePermissionTo([
+            $logsIndex,
             $usersIndex, $usersStore, $usersEdit, $usersDestroy, $usersChangeRole, 
             $manufacturersIndex, $manufacturersStore, $manufacturersEdit, $manufacturersDestroy,
             $modelsIndex, $modelsStore, $modelsEdit, $modelsDestroy,

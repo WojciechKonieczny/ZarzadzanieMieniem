@@ -49,7 +49,7 @@
               Home
           </x-nav-link>
         </li>   
-        @can('log-viewer') 
+        @can('log-viewer.index') 
         <li class="nav-item">
           <x-nav-link :href="route('log-viewer::dashboard')">
               {{ __('translations.menu.log-viewer') }}
