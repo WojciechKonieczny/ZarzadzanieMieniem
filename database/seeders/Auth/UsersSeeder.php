@@ -29,6 +29,10 @@ class UsersSeeder extends Seeder {
 
         $globalAdmin->assignRole( config('app.admin_role') );
         $normalUser->assignRole( config('app.user_role') );
+
+        User::factory()->count(10)->create()->each( function( $user ) {
+            $user->assignRole( config('app.user_role') );
+        });
     }
 
 }

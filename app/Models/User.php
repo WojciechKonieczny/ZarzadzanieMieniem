@@ -42,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // kazdy uzytkownik moze miec wiele przedmiotow
+    public function items() {
+        return $this->belongsToMany(Item::class)->withPivot('serial_number', 'purcharse_date', 'warranty_end', 'assignment_date');
+    }
 }
