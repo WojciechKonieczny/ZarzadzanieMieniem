@@ -46,6 +46,14 @@ class PermissionsSeeder extends Seeder {
         $modelsDestroy = Permission::create( ['name' => 'models.destroy'] ); // usuwanie
 
         /*
+        * Uprawnienia od Items
+        */
+        $itemsIndex = Permission::create( ['name' => 'items.index'] ); // wyswietlanie
+        $itemsStore = Permission::create( ['name' => 'items.store'] ); // dodawanie nowego
+        $itemsEdit = Permission::create( ['name' => 'items.edit'] ); // edycja
+        $itemsDestroy = Permission::create( ['name' => 'items.destroy'] ); // usuwanie
+
+        /*
         * Uprawnienia od Kategorii
         */
         $categoriesIndex = Permission::create( ['name' => 'categories.index'] ); // wyswietlanie
@@ -54,21 +62,13 @@ class PermissionsSeeder extends Seeder {
         $categoriesDestroy = Permission::create( ['name' => 'categories.destroy'] ); // usuwanie
 
         /*
-        * Uprawnienia od Lokalizacji
+        * Uprawnienia od itemsUsers
         */
-        $locationsIndex = Permission::create( ['name' => 'locations.index'] ); // wyswietlanie
-        $locationsStore = Permission::create( ['name' => 'locations.store'] ); // dodawanie nowego
-        $locationsEdit = Permission::create( ['name' => 'locations.edit'] ); // edycja
-        $locationsDestroy = Permission::create( ['name' => 'locations.destroy'] ); // usuwanie
-
-        /*
-        * Uprawnienia od ThingsUsers
-        */
-        $thingsUsersIndex = Permission::create( ['name' => 'thingsUsers.index'] ); // wyswietlanie
-        $thingsUsersStore = Permission::create( ['name' => 'thingsUsers.store'] ); // dodawanie nowego
-        $thingsUsersEdit = Permission::create( ['name' => 'thingsUsers.edit'] ); // edycja
-        $thingsUsersDestroy = Permission::create( ['name' => 'thingsUsers.destroy'] ); // usuwanie
-        $thingsUsersIndexToMe = Permission::create( ['name' => 'thingsUsers.index_to_me'] ); // uzytkownik moze wyswietlic tylko te rzeczy, ktore sa przypisane do niego
+        $itemsUsersIndex = Permission::create( ['name' => 'itemsUsers.index'] ); // wyswietlanie
+        $itemsUsersStore = Permission::create( ['name' => 'itemsUsers.store'] ); // dodawanie nowego
+        $itemsUsersEdit = Permission::create( ['name' => 'itemsUsers.edit'] ); // edycja
+        $itemsUsersDestroy = Permission::create( ['name' => 'itemsUsers.destroy'] ); // usuwanie
+        $itemsUsersIndexToMe = Permission::create( ['name' => 'itemsUsers.index_to_me'] ); // uzytkownik moze wyswietlic tylko te rzeczy, ktore sa przypisane do niego
 
         /*
         * Przypisywanie uprawnień do ról
@@ -79,14 +79,14 @@ class PermissionsSeeder extends Seeder {
             $usersIndex, $usersStore, $usersEdit, $usersDestroy, $usersChangeRole, 
             $manufacturersIndex, $manufacturersStore, $manufacturersEdit, $manufacturersDestroy,
             $modelsIndex, $modelsStore, $modelsEdit, $modelsDestroy,
+            $itemsIndex, $itemsStore, $itemsEdit, $itemsDestroy,
             $categoriesIndex, $categoriesStore, $categoriesEdit, $categoriesDestroy,
-            $locationsIndex, $locationsStore, $locationsEdit, $locationsDestroy,
-            $thingsUsersIndex, $thingsUsersStore, $thingsUsersEdit, $thingsUsersDestroy, $thingsUsersIndexToMe
+            $itemsUsersIndex, $itemsUsersStore, $itemsUsersEdit, $itemsUsersDestroy, $itemsUsersIndexToMe
         ]);
 
         $userRole = Role::findByName( config('app.user_role') );
         $userRole->givePermissionTo([
-            $thingsUsersIndexToMe,
+            $itemsUsersIndexToMe,
         ]);
     }
 
