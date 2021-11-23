@@ -16,7 +16,7 @@
 
     {{-- zostanie zaladowane do komponentu Base pod zmienna $slot --}}
     {{-- zaladowanie menu z pliku --}}
-    @include('layouts.navigation');
+    @include('layouts.navigation')
     <div class="container">
         {{ $slot }}
     </div>
