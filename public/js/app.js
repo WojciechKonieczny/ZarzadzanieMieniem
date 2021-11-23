@@ -14,7 +14,7 @@
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("// require('./bootstrap');\n// wyeksportowanie globalnie biblioteki jQuery\n__webpack_require__.g.$ = __webpack_require__.g.jQuery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"); // dolozenie bootstrapa i zestawu ikon bootstrapa\n\n__webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\");\n\n__webpack_require__(/*! bootstrap-icons/font/bootstrap-icons.css */ \"./node_modules/bootstrap-icons/font/bootstrap-icons.css\");//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwibWFwcGluZ3MiOiJBQUFBO0FBRUE7QUFDQUEscUJBQU0sQ0FBQ0MsQ0FBUCxHQUFXRCxxQkFBTSxDQUFDRSxNQUFQLEdBQWdCQyxtQkFBTyxDQUFDLG9EQUFELENBQWxDLEMsQ0FFQTs7QUFDQUEsbUJBQU8sQ0FBQyxvRUFBRCxDQUFQOztBQUNBQSxtQkFBTyxDQUFDLHlHQUFELENBQVAiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYXBwLmpzP2NlZDYiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gcmVxdWlyZSgnLi9ib290c3RyYXAnKTtcblxuLy8gd3lla3Nwb3J0b3dhbmllIGdsb2JhbG5pZSBiaWJsaW90ZWtpIGpRdWVyeVxuZ2xvYmFsLiQgPSBnbG9iYWwualF1ZXJ5ID0gcmVxdWlyZSgnanF1ZXJ5Jyk7XG5cbi8vIGRvbG96ZW5pZSBib290c3RyYXBhIGkgemVzdGF3dSBpa29uIGJvb3RzdHJhcGFcbnJlcXVpcmUoJ2Jvb3RzdHJhcCcpO1xucmVxdWlyZSgnYm9vdHN0cmFwLWljb25zL2ZvbnQvYm9vdHN0cmFwLWljb25zLmNzcycpOyJdLCJuYW1lcyI6WyJnbG9iYWwiLCIkIiwialF1ZXJ5IiwicmVxdWlyZSJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
+eval("// require('./bootstrap');\n// wyeksportowanie globalnie biblioteki jQuery\nwindow.$ = window.jQuery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\nwindow.bootstrap = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\"); // dolozenie bootstrapa i zestawu ikon bootstrapa\n// require('bootstrap');//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwibWFwcGluZ3MiOiJBQUFBO0FBRUE7QUFDQUEsTUFBTSxDQUFDQyxDQUFQLEdBQVdELE1BQU0sQ0FBQ0UsTUFBUCxHQUFnQkMsbUJBQU8sQ0FBQyxvREFBRCxDQUFsQztBQUNBSCxNQUFNLENBQUNJLFNBQVAsR0FBbUJELG1CQUFPLENBQUMsb0VBQUQsQ0FBMUIsQyxDQUVBO0FBQ0EiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYXBwLmpzP2NlZDYiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gcmVxdWlyZSgnLi9ib290c3RyYXAnKTtcblxuLy8gd3lla3Nwb3J0b3dhbmllIGdsb2JhbG5pZSBiaWJsaW90ZWtpIGpRdWVyeVxud2luZG93LiQgPSB3aW5kb3cualF1ZXJ5ID0gcmVxdWlyZSgnanF1ZXJ5Jyk7XG53aW5kb3cuYm9vdHN0cmFwID0gcmVxdWlyZSgnYm9vdHN0cmFwJyk7XG5cbi8vIGRvbG96ZW5pZSBib290c3RyYXBhIGkgemVzdGF3dSBpa29uIGJvb3RzdHJhcGFcbi8vIHJlcXVpcmUoJ2Jvb3RzdHJhcCcpO1xuIl0sIm5hbWVzIjpbIndpbmRvdyIsIiQiLCJqUXVlcnkiLCJyZXF1aXJlIiwiYm9vdHN0cmFwIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
 
 /***/ }),
 
@@ -25,6 +25,16 @@ eval("// require('./bootstrap');\n// wyeksportowanie globalnie biblioteki jQuery
 /***/ (() => {
 
 eval("// window._ = require('lodash');\n// /**\n//  * We'll load the axios HTTP library which allows us to easily issue requests\n//  * to our Laravel back-end. This library automatically handles sending the\n//  * CSRF token as a header based on the value of the \"XSRF\" token cookie.\n//  */\n// window.axios = require('axios');\n// window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';\n// /**\n//  * Echo exposes an expressive API for subscribing to channels and listening\n//  * for events that are broadcast by Laravel. Echo and event broadcasting\n//  * allows your team to easily build robust real-time web applications.\n//  */\n// // import Echo from 'laravel-echo';\n// // window.Pusher = require('pusher-js');\n// // window.Echo = new Echo({\n// //     broadcaster: 'pusher',\n// //     key: process.env.MIX_PUSHER_APP_KEY,\n// //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,\n// //     forceTLS: true\n// });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYm9vdHN0cmFwLmpzPzZkZTciXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFJQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFFQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUVBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlc0NvbnRlbnQiOlsiLy8gd2luZG93Ll8gPSByZXF1aXJlKCdsb2Rhc2gnKTtcblxuXG5cbi8vIC8qKlxuLy8gICogV2UnbGwgbG9hZCB0aGUgYXhpb3MgSFRUUCBsaWJyYXJ5IHdoaWNoIGFsbG93cyB1cyB0byBlYXNpbHkgaXNzdWUgcmVxdWVzdHNcbi8vICAqIHRvIG91ciBMYXJhdmVsIGJhY2stZW5kLiBUaGlzIGxpYnJhcnkgYXV0b21hdGljYWxseSBoYW5kbGVzIHNlbmRpbmcgdGhlXG4vLyAgKiBDU1JGIHRva2VuIGFzIGEgaGVhZGVyIGJhc2VkIG9uIHRoZSB2YWx1ZSBvZiB0aGUgXCJYU1JGXCIgdG9rZW4gY29va2llLlxuLy8gICovXG5cbi8vIHdpbmRvdy5heGlvcyA9IHJlcXVpcmUoJ2F4aW9zJyk7XG5cbi8vIHdpbmRvdy5heGlvcy5kZWZhdWx0cy5oZWFkZXJzLmNvbW1vblsnWC1SZXF1ZXN0ZWQtV2l0aCddID0gJ1hNTEh0dHBSZXF1ZXN0JztcblxuLy8gLyoqXG4vLyAgKiBFY2hvIGV4cG9zZXMgYW4gZXhwcmVzc2l2ZSBBUEkgZm9yIHN1YnNjcmliaW5nIHRvIGNoYW5uZWxzIGFuZCBsaXN0ZW5pbmdcbi8vICAqIGZvciBldmVudHMgdGhhdCBhcmUgYnJvYWRjYXN0IGJ5IExhcmF2ZWwuIEVjaG8gYW5kIGV2ZW50IGJyb2FkY2FzdGluZ1xuLy8gICogYWxsb3dzIHlvdXIgdGVhbSB0byBlYXNpbHkgYnVpbGQgcm9idXN0IHJlYWwtdGltZSB3ZWIgYXBwbGljYXRpb25zLlxuLy8gICovXG5cbi8vIC8vIGltcG9ydCBFY2hvIGZyb20gJ2xhcmF2ZWwtZWNobyc7XG5cbi8vIC8vIHdpbmRvdy5QdXNoZXIgPSByZXF1aXJlKCdwdXNoZXItanMnKTtcblxuLy8gLy8gd2luZG93LkVjaG8gPSBuZXcgRWNobyh7XG4vLyAvLyAgICAgYnJvYWRjYXN0ZXI6ICdwdXNoZXInLFxuLy8gLy8gICAgIGtleTogcHJvY2Vzcy5lbnYuTUlYX1BVU0hFUl9BUFBfS0VZLFxuLy8gLy8gICAgIGNsdXN0ZXI6IHByb2Nlc3MuZW52Lk1JWF9QVVNIRVJfQVBQX0NMVVNURVIsXG4vLyAvLyAgICAgZm9yY2VUTFM6IHRydWVcbi8vIH0pO1xuIl0sImZpbGUiOiIuL3Jlc291cmNlcy9qcy9ib290c3RyYXAuanMuanMiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/bootstrap.js\n");
+
+/***/ }),
+
+/***/ "./resources/js/manufacturers.js":
+/*!***************************************!*\
+  !*** ./resources/js/manufacturers.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("__webpack_require__(/*! datatables.net-bs5 */ \"./node_modules/datatables.net-bs5/js/dataTables.bootstrap5.js\");\n\nwindow.$ = window.jQuery = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n$(function () {\n  $('table').DataTable({\n    \"language\": {\n      \"url\": \"/vendor/datatables/i18n/\" + config.local + \".json\"\n    }\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvbWFudWZhY3R1cmVycy5qcy5qcyIsIm1hcHBpbmdzIjoiQUFBQUEsbUJBQU8sQ0FBQyx5RkFBRCxDQUFQOztBQUNBQyxNQUFNLENBQUNDLENBQVAsR0FBV0QsTUFBTSxDQUFDRSxNQUFQLEdBQWdCSCxtQkFBTyxDQUFDLG9EQUFELENBQWxDO0FBRUFFLENBQUMsQ0FBQyxZQUFZO0FBQ1ZBLEVBQUFBLENBQUMsQ0FBQyxPQUFELENBQUQsQ0FBV0UsU0FBWCxDQUFxQjtBQUNqQixnQkFBWTtBQUNSLGFBQU8sNkJBQTZCQyxNQUFNLENBQUNDLEtBQXBDLEdBQTRDO0FBRDNDO0FBREssR0FBckI7QUFLSCxDQU5BLENBQUQiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvbWFudWZhY3R1cmVycy5qcz81NjQ0Il0sInNvdXJjZXNDb250ZW50IjpbInJlcXVpcmUoJ2RhdGF0YWJsZXMubmV0LWJzNScpO1xyXG53aW5kb3cuJCA9IHdpbmRvdy5qUXVlcnkgPSByZXF1aXJlKCdqcXVlcnknKTtcclxuXHJcbiQoZnVuY3Rpb24gKCkge1xyXG4gICAgJCgndGFibGUnKS5EYXRhVGFibGUoe1xyXG4gICAgICAgIFwibGFuZ3VhZ2VcIjoge1xyXG4gICAgICAgICAgICBcInVybFwiOiBcIi92ZW5kb3IvZGF0YXRhYmxlcy9pMThuL1wiICsgY29uZmlnLmxvY2FsICsgXCIuanNvblwiXHJcbiAgICAgICAgfSxcclxuICAgIH0pO1xyXG59KTtcclxuIl0sIm5hbWVzIjpbInJlcXVpcmUiLCJ3aW5kb3ciLCIkIiwialF1ZXJ5IiwiRGF0YVRhYmxlIiwiY29uZmlnIiwibG9jYWwiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/manufacturers.js\n");
 
 /***/ }),
 
@@ -39,6 +49,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
+/***/ "./resources/sass/manufacturers.scss":
+/*!*******************************************!*\
+  !*** ./resources/sass/manufacturers.scss ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9tYW51ZmFjdHVyZXJzLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvbWFudWZhY3R1cmVycy5zY3NzPzlhN2QiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/manufacturers.scss\n");
+
+/***/ }),
+
 /***/ "./resources/sass/form.scss":
 /*!**********************************!*\
   !*** ./resources/sass/form.scss ***!
@@ -46,14 +67,14 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9mb3JtLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvZm9ybS5zY3NzPzhmMjUiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/form.scss\n");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9mb3JtLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvZm9ybS5zY3NzP2U0ZGQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/form.scss\n");
 
 /***/ })
 
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["css/app","css/form","/js/vendor"], () => (__webpack_exec__("./resources/js/app.js"), __webpack_exec__("./resources/js/bootstrap.js"), __webpack_exec__("./resources/sass/app.scss"), __webpack_exec__("./resources/sass/form.scss")));
+/******/ __webpack_require__.O(0, ["css/app","css/manufacturers","css/form","/js/vendor"], () => (__webpack_exec__("./resources/js/app.js"), __webpack_exec__("./resources/js/bootstrap.js"), __webpack_exec__("./resources/js/manufacturers.js"), __webpack_exec__("./resources/sass/app.scss"), __webpack_exec__("./resources/sass/manufacturers.scss"), __webpack_exec__("./resources/sass/form.scss")));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);

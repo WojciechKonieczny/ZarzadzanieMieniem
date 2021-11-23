@@ -1,8 +1,8 @@
 // require('./bootstrap');
 
 // wyeksportowanie globalnie biblioteki jQuery
-global.$ = global.jQuery = require('jquery');
+window.$ = window.jQuery = require('jquery');
+window.bootstrap = require('bootstrap');
 
 // dolozenie bootstrapa i zestawu ikon bootstrapa
-require('bootstrap');
-require('bootstrap-icons/font/bootstrap-icons.css');
+// require('bootstrap');
