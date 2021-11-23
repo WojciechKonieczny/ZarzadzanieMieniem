@@ -21,7 +21,7 @@ class CreateItemUserTable extends Migration
             */
             $table->unsignedBigInteger('item_id');
             $table->foreign('item_id')->references('id')->on('items')->onDelete('no action');
-            // moga byc przedmioty nieprzypisane do uzytkownika
+            
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
             
