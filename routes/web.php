@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ManufacturerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,16 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+
+// grupujemy routing - uzytkownik musi byc zalogowany i zweryfikowany
+Route::middleware( ['auth', 'verified'] )->group( function() {
+
+    // routing dla producentow
+    Route::name('manufacturers.')->prefix('manufacturers')->group( function() {
+         // wchodzac na /manufacturers, zostanie wywolany ten routing; osoba musi miec uprawnienia do niego (middleware)
+        Route::get('', [ManufacturerController::class, 'index'])->name('index')->middleware(['permission:manufacturers.index']);
+    });
+
+} );

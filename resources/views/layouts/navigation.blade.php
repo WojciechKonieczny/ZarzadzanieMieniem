@@ -11,44 +11,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        @can('category.index')
         <li class="nav-item">
-          <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
-            {{ __('translations.categories.title') }}
+          <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+              Dashboard
           </x-nav-link>
-        </li> 
-        @endcan 
-        @can('manufacturer.index')
+        @can('manufacturers.index')
         <li class="nav-item">         
           <x-nav-link :href="route('manufacturers.index')" :active="request()->routeIs('manufacturers.index')">
             {{ __('translations.manufacturers.title') }}
           </x-nav-link>
         </li> 
         @endcan
-        @can('model.index')
-        <li class="nav-item">         
-          <x-nav-link :href="route('models.index')" :active="request()->routeIs('models.index')">
-            {{ __('translations.models.title') }}
-          </x-nav-link>
-        </li> 
-        @endcan
-        @can('item.index')
-        <li class="nav-item">         
-          <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
-            {{ __('translations.items.title') }}
-          </x-nav-link>
-        </li>         
-        @endcan        
-        <li class="nav-item">
-          <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-              Dashboard
-          </x-nav-link>
         </li>            
-        <li class="nav-item">
-          <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-              Home
-          </x-nav-link>
-        </li>   
         @can('log-viewer.index') 
         <li class="nav-item">
           <x-nav-link :href="route('log-viewer::dashboard')">
@@ -65,7 +39,7 @@
       <div class="navbar-nav dropdown">
         <a href="#" class="nav-link dropdown-toggle" id="profile" 
             data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="{{url('/images/avatars/blank.png')}}" alt="USER_NAME" width="32" height="32" class="rounded-circle">
+          <img src="{{url('/images/avatars/blank.png')}}" alt="USER_NAME" width="32" height="32" class="rounded-circle"/>
           {{ Auth::user()->email }}
         </a>
         <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="profile">
