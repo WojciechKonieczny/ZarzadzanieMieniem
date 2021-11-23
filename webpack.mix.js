@@ -14,4 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/js/*.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/form.scss', 'public/css')
-    .sourceMaps();
+    .copy('resources/views/vendor/datatables/i18n/pl.json', 'public/vendor/datatables/i18n')  // wtyczka nie ma dostepu do katalogu resources, wiec musimy przerzucic pliki tlumaczen do publica
+    .sourceMaps()
+    // rozbicie kompilacji js
+    .extract();
