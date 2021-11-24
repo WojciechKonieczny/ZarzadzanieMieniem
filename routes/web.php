@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ModelOrNameController;
 use App\Http\Controllers\ManufacturerController;
 
@@ -53,6 +54,11 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
     // routing dla przedmiotów
     Route::name('items.')->prefix('items')->group( function() {
         Route::get('', [ItemController::class, 'index'])->name('index')->middleware(['permission:items.index']);
+    });
+
+    // routing dla mienia
+    Route::name('inventory.')->prefix('inventory')->group( function() {
+        Route::get('', [InventoryController::class, 'index'])->name('index')->middleware(['permission:itemsUsers.index']);
     });
 
     // routing dla użytkowników

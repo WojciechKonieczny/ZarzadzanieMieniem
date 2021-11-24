@@ -43,6 +43,13 @@
           </x-nav-link>
         </li> 
         @endcan
+        @can('itemsUsers.index')
+        <li class="nav-item">         
+          <x-nav-link :href="route('inventory.index')" :active="request()->routeIs('inventory.index')">
+            {{ __('translations.inventory.title') }}
+          </x-nav-link>
+        </li> 
+        @endcan
         @can('users.index')
         <li class="nav-item">         
           <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">

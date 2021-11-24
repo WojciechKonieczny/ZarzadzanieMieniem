@@ -54,12 +54,17 @@ return [
         ],
     ],
 
-    'item_user' => [
+    'inventory' => [
         'title' => 'Spis mienia',
         'attribute' => [
             'manufacturer' => 'producent',
-            'modelOrName' => 'model',
-            'category' => 'kategoria'
+            'model_or_name' => 'model',
+            'category' => 'kategoria',
+            'user' => 'użytkownik',
+            'serial_number' => 'identyfikator',
+            'purcharse_date' => 'zakup',
+            'warranty_end' => 'koniec gwarancji',
+            'assignment_date' => 'przypisanie'
         ]
     ],
 ];
