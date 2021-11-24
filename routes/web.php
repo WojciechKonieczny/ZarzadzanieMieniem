@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ModelOrNameController;
 use App\Http\Controllers\ManufacturerController;
@@ -52,6 +53,11 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
     // routing dla przedmiotów
     Route::name('items.')->prefix('items')->group( function() {
         Route::get('', [ItemController::class, 'index'])->name('index')->middleware(['permission:items.index']);
+    });
+
+    // routing dla użytkowników
+    Route::name('users.')->prefix('users')->group( function() {
+        Route::get('', [UserController::class, 'index'])->name('index')->middleware(['permission:users.index']);
     });
 
 } );

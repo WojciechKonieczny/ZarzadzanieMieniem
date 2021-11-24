@@ -5,6 +5,7 @@
     "/js/models_or_names.js": "/js/models_or_names.js",
     "/js/categories.js": "/js/categories.js",
     "/js/items.js": "/js/items.js",
+    "/js/users.js": "/js/users.js",
     "/js/manifest.js": "/js/manifest.js",
     "/css/app.css": "/css/app.css",
     "/css/items.css": "/css/items.css",
@@ -12,6 +13,7 @@
     "/css/models_or_names.css": "/css/models_or_names.css",
     "/css/manufacturers.css": "/css/manufacturers.css",
     "/css/form.css": "/css/form.css",
+    "/css/users.css": "/css/users.css",
     "/js/vendor.js": "/js/vendor.js",
     "/vendor/datatables/i18n/pl.json": "/vendor/datatables/i18n/pl.json"
 }

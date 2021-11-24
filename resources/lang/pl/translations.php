@@ -44,6 +44,16 @@ return [
         ]
     ],
 
+    'users' => [
+        'title' => 'Użytkownicy',
+        'attribute' => [
+            'name' => 'imię i nazwisko',
+            'mail' => 'email',
+            'role' => 'rola',
+            'count' => 'ilość przedmiotów'
+        ],
+    ],
+
     'item_user' => [
         'title' => 'Spis mienia',
         'attribute' => [

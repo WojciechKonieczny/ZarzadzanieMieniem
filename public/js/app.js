@@ -83,6 +83,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _glo
 
 /***/ }),
 
+/***/ "./resources/js/users.js":
+/*!*******************************!*\
+  !*** ./resources/js/users.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _global__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./global */ \"./resources/js/global.js\");\n\n(0,_global__WEBPACK_IMPORTED_MODULE_0__.datatablesFunction)(config.local);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvdXNlcnMuanMuanMiLCJtYXBwaW5ncyI6Ijs7QUFBQTtBQUVBQSwyREFBa0IsQ0FBQ0MsTUFBTSxDQUFDQyxLQUFSLENBQWxCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL2pzL3VzZXJzLmpzPzExYmIiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgZGF0YXRhYmxlc0Z1bmN0aW9uIH0gZnJvbSBcIi4vZ2xvYmFsXCI7XHJcblxyXG5kYXRhdGFibGVzRnVuY3Rpb24oY29uZmlnLmxvY2FsKTsiXSwibmFtZXMiOlsiZGF0YXRhYmxlc0Z1bmN0aW9uIiwiY29uZmlnIiwibG9jYWwiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/users.js\n");
+
+/***/ }),
+
+/***/ "./resources/sass/users.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/users.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy91c2Vycy5zY3NzLmpzIiwibWFwcGluZ3MiOiI7QUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9zYXNzL3VzZXJzLnNjc3M/NWNkYSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbmV4cG9ydCB7fTsiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/sass/users.scss\n");
+
+/***/ }),
+
 /***/ "./resources/sass/form.scss":
 /*!**********************************!*\
   !*** ./resources/sass/form.scss ***!
@@ -90,7 +112,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _glo
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9mb3JtLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvZm9ybS5zY3NzPzkwYjAiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/form.scss\n");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9mb3JtLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvZm9ybS5zY3NzP2I1MjQiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/form.scss\n");
 
 /***/ }),
 
@@ -152,7 +174,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 },
 /******/ __webpack_require__ => { // webpackRuntimeModules
 /******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-/******/ __webpack_require__.O(0, ["css/app","css/items","css/categories","css/models_or_names","css/manufacturers","css/form","/js/vendor"], () => (__webpack_exec__("./resources/js/app.js"), __webpack_exec__("./resources/js/bootstrap.js"), __webpack_exec__("./resources/js/categories.js"), __webpack_exec__("./resources/js/global.js"), __webpack_exec__("./resources/js/items.js"), __webpack_exec__("./resources/js/manufacturers.js"), __webpack_exec__("./resources/js/models_or_names.js"), __webpack_exec__("./resources/sass/app.scss"), __webpack_exec__("./resources/sass/manufacturers.scss"), __webpack_exec__("./resources/sass/models_or_names.scss"), __webpack_exec__("./resources/sass/categories.scss"), __webpack_exec__("./resources/sass/items.scss"), __webpack_exec__("./resources/sass/form.scss")));
+/******/ __webpack_require__.O(0, ["css/app","css/items","css/categories","css/models_or_names","css/manufacturers","css/form","css/users","/js/vendor"], () => (__webpack_exec__("./resources/js/app.js"), __webpack_exec__("./resources/js/bootstrap.js"), __webpack_exec__("./resources/js/categories.js"), __webpack_exec__("./resources/js/global.js"), __webpack_exec__("./resources/js/items.js"), __webpack_exec__("./resources/js/manufacturers.js"), __webpack_exec__("./resources/js/models_or_names.js"), __webpack_exec__("./resources/js/users.js"), __webpack_exec__("./resources/sass/app.scss"), __webpack_exec__("./resources/sass/manufacturers.scss"), __webpack_exec__("./resources/sass/models_or_names.scss"), __webpack_exec__("./resources/sass/categories.scss"), __webpack_exec__("./resources/sass/items.scss"), __webpack_exec__("./resources/sass/users.scss"), __webpack_exec__("./resources/sass/form.scss")));
 /******/ var __webpack_exports__ = __webpack_require__.O();
 /******/ }
 ]);

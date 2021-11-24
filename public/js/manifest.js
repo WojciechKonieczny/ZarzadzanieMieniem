@@ -112,7 +112,8 @@
 /******/ 			"css/categories": 0,
 /******/ 			"css/models_or_names": 0,
 /******/ 			"css/manufacturers": 0,
-/******/ 			"css/form": 0
+/******/ 			"css/form": 0,
+/******/ 			"css/users": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
