@@ -1,6 +1,7 @@
 require('datatables.net-bs5');
 
 const datatablesFunction = () => {
+    $('table').DataTable().fnDestroy();
 
     $( () => {
         $('table').DataTable({
