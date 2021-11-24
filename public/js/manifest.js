@@ -108,6 +108,8 @@
 /******/ 		var installedChunks = {
 /******/ 			"/js/manifest": 0,
 /******/ 			"css/app": 0,
+/******/ 			"css/categories": 0,
+/******/ 			"css/models_or_names": 0,
 /******/ 			"css/manufacturers": 0,
 /******/ 			"css/form": 0
 /******/ 		};

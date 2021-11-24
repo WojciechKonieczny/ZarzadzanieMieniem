@@ -22,10 +22,17 @@
           </x-nav-link>
         </li> 
         @endcan
-        @can('manufacturers.index')
+        @can('models.index')
         <li class="nav-item">         
           <x-nav-link :href="route('models.index')" :active="request()->routeIs('models.index')">
             {{ __('translations.models_or_names.title') }}
+          </x-nav-link>
+        </li> 
+        @endcan
+        @can('categories.index')
+        <li class="nav-item">         
+          <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
+            {{ __('translations.categories.title') }}
           </x-nav-link>
         </li> 
         @endcan
