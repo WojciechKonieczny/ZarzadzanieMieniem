@@ -42,7 +42,14 @@
             {{ __('translations.items.title') }}
           </x-nav-link>
         </li> 
-        @endcan            
+        @endcan
+        @can('users.index')
+        <li class="nav-item">         
+          <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+            {{ __('translations.users.title') }}
+          </x-nav-link>
+        </li> 
+        @endcan          
         @can('log-viewer.index') 
         <li class="nav-item">
           <x-nav-link :href="route('log-viewer::dashboard')">

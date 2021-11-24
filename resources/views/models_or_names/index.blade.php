@@ -11,8 +11,8 @@
     <div class="container">
         <h1>{{ __('translations.models_or_names.title') }}</h1>
 
-        <div class="table-container">
-            <table class="table">
+        <div class="table-container table-responsive">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
