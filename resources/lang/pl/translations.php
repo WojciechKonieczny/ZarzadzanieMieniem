@@ -19,7 +19,7 @@ return [
         ],
     ],
 
-    'models' => [
+    'models_or_names' => [
         'title' => 'Modele',
         'attribute' => [
             'name' => 'nazwa',

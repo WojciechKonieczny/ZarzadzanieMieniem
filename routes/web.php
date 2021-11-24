@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ModelOrNameController;
 use App\Http\Controllers\ManufacturerController;
 
 /*
@@ -34,6 +35,11 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
     Route::name('manufacturers.')->prefix('manufacturers')->group( function() {
          // wchodzac na /manufacturers, zostanie wywolany ten routing; osoba musi miec uprawnienia do niego (middleware)
         Route::get('', [ManufacturerController::class, 'index'])->name('index')->middleware(['permission:manufacturers.index']);
+    });
+
+    // routing dla modeli
+    Route::name('models.')->prefix('models')->group( function() {
+        Route::get('', [ModelOrNameController::class, 'index'])->name('index')->middleware(['permission:models.index']);
     });
 
 } );

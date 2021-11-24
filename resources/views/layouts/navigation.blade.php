@@ -22,6 +22,13 @@
           </x-nav-link>
         </li> 
         @endcan
+        @can('manufacturers.index')
+        <li class="nav-item">         
+          <x-nav-link :href="route('models.index')" :active="request()->routeIs('models.index')">
+            {{ __('translations.models_or_names.title') }}
+          </x-nav-link>
+        </li> 
+        @endcan
         </li>            
         @can('log-viewer.index') 
         <li class="nav-item">
