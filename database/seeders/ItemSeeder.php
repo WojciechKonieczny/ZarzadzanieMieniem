@@ -46,7 +46,9 @@ class ItemSeeder extends Seeder
                     'serial_number' => $randomString,
                     'purcharse_date' => date('Y-m-d', $randStartDate),
                     'warranty_end' => date('Y-m-d', $randDateEnd),
-                    'assignment_date' => date('Y-m-d', $randDateEnd2)
+                    'assignment_date' => date('Y-m-d', $randDateEnd2),
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
                 ]);
         }
     }
