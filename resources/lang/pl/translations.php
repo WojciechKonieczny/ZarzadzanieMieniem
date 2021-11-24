@@ -39,7 +39,7 @@ return [
         'title' => 'Przedmioty',
         'attribute' => [
             'manufacturer' => 'producent',
-            'modelOrName' => 'model',
+            'model_or_name' => 'model',
             'category' => 'kategoria'
         ]
     ],

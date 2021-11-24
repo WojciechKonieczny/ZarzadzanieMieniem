@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ModelOrNameController;
 use App\Http\Controllers\ManufacturerController;
@@ -46,6 +47,11 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
      // routing dla kategorii
      Route::name('categories.')->prefix('categories')->group( function() {
         Route::get('', [CategoryController::class, 'index'])->name('index')->middleware(['permission:categories.index']);
+    });
+
+    // routing dla przedmiotów
+    Route::name('items.')->prefix('items')->group( function() {
+        Route::get('', [ItemController::class, 'index'])->name('index')->middleware(['permission:items.index']);
     });
 
 } );

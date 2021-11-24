@@ -36,7 +36,13 @@
           </x-nav-link>
         </li> 
         @endcan
-        </li>            
+        @can('items.index')
+        <li class="nav-item">         
+          <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
+            {{ __('translations.items.title') }}
+          </x-nav-link>
+        </li> 
+        @endcan            
         @can('log-viewer.index') 
         <li class="nav-item">
           <x-nav-link :href="route('log-viewer::dashboard')">

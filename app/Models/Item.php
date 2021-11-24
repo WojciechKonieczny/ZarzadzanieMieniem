@@ -29,7 +29,7 @@ class Item extends Model
 
     // kazdy przedmiot moze miec jeden model
     public function modelorname() {
-        return $this->belongsTo(ModelOrName::class);
+        return $this->belongsTo(ModelOrName::class, 'model_or_name_id'); // nie zastosowalem sie do konwencji nazewnictwa w tym przypadku, wiec musze podac klucz obcy 
     }
 
     // kazdy przedmiot moze nalezec do jednej kategorii
