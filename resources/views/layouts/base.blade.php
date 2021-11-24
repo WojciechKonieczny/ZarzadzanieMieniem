@@ -11,6 +11,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
+    {{-- deklarujemy jezyk aplikacji - przyda sie we wtyczce DataTables do tlumaczen  --}}
+    <script>
+        window.config = {
+            local: "{{ config('app.locale') }}"
+        }
+    </script>
+
     {{-- globalne style CSS  --}}
     <link rel="stylesheet" href=" {{ asset('css/app.css') }}">
     {{-- lokalne style CSS (przekazujemy ten parametr w @props) --}}
@@ -22,6 +29,8 @@
     {{ $slot }}
 
     {{-- globalne skrypty JS --}}
+    <script src=" {{ asset('js/manifest.js') }} "></script>
+    <script src=" {{ asset('js/vendor.js') }} "></script>
     <script src=" {{ asset('js/app.js') }} "></script>
     {{-- lokalne skrypty JS --}}
     {{ $scripts }}
