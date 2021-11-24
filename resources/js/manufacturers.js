@@ -1,3 +1,3 @@
 import { datatablesFunction } from "./global";
 
-datatablesFunction();
+datatablesFunction(config.local);

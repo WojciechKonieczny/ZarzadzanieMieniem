@@ -1,16 +1,16 @@
 require('datatables.net-bs5');
 
-const datatablesFunction = () => {
-    $('table').DataTable().fnDestroy();
+const datatablesFunction = (language) => {
 
     $( () => {
         $('table').DataTable({
             "language": {
-                "url": "/vendor/datatables/i18n/" + config.local + ".json"
+                "url": "/vendor/datatables/i18n/" + language + ".json"
             },
+            destroy: true,
+            // "bDestroy": true,
         });
     });
-
 };
 
 export { datatablesFunction };
