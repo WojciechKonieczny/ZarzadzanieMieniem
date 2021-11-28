@@ -15,7 +15,7 @@ return [
         'title' => 'Producenci',
         'attribute' => [
             'name' => 'nazwa',
-            'count' => 'ilość przedmiotów',
+            'count' => 'ilość modeli',
         ],
     ],
 
@@ -23,7 +23,7 @@ return [
         'title' => 'Modele',
         'attribute' => [
             'name' => 'nazwa',
-            'count' => 'ilość przedmiotów',
+            'count' => 'ilość producentów',
         ],
     ],
 
@@ -50,7 +50,7 @@ return [
             'name' => 'imię i nazwisko',
             'mail' => 'email',
             'role' => 'rola',
-            'count' => 'ilość przedmiotów'
+            'count' => 'ilość mienia'
         ],
     ],
 
