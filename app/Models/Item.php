@@ -39,7 +39,7 @@ class Item extends Model
 
     // kazdy przedmiot moze miec wielu wlascicieli
     public function users() {
-        return $this->belongsToMany(User::class)->withPivot('serial_number', 'purcharse_date', 'warranty_end', 'assignment_date');
+        return $this->belongsToMany(User::class)->withPivot('id', 'serial_number', 'purcharse_date', 'warranty_end', 'assignment_date');
     }
 
 }

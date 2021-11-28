@@ -32,50 +32,44 @@
                         <th>{{ __('translations.inventory.attribute.warranty_end') }}</th>
                         <th>{{ __('translations.inventory.attribute.user') }}</th>
                         <th>{{ __('translations.inventory.attribute.assignment_date') }}</th>
-                        {{-- <th>{{ __('translations.attribute.created_at') }}</th>
-                        <th>{{ __('translations.attribute.updated_at') }}</th>
-                        <th>{{ __('translations.attribute.deleted_at') }}</th> --}}
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach($items as $item)
-                        @hasrole('admin')
-                        <tr>
-                            <td> {{ $item->id }} </td>
-                            <td> {{ $item->manufacturer}} </td>
-                            <td> {{ $item->model }} </td>
-                            <td> {{ $item->category }} </td>
-                            <td> {{ $item->serial_number }} </td>
-                            <td> {{ $item->purcharse_date }} </td>
-                            <td> {{ $item->warranty_end }} </td>
-                            <td> {{ $item->email }} </td>
-                            <td> {{ $item->assignment_date }} </td>
-                            {{-- <td> {{ $item->created_at }} </td>
-                            <td> {{ $item->updated_at }} </td>
-                            <td> {{ $item->deleted_at }} </td> --}}
-                        </tr>
-                        @endhasrole
-
-                        @hasrole('user')
-                            @if( $item->email == Auth::user()->email  )
-                                <tr>
-                                    <td> {{ $item->id }} </td>
-                                    <td> {{ $item->manufacturer}} </td>
-                                    <td> {{ $item->model }} </td>
-                                    <td> {{ $item->category }} </td>
-                                    <td> {{ $item->serial_number }} </td>
-                                    <td> {{ $item->purcharse_date }} </td>
-                                    <td> {{ $item->warranty_end }} </td>
-                                    <td> {{ $item->email }} </td>
-                                    <td> {{ $item->assignment_date }} </td>
-                                    {{-- <td> {{ $item->created_at }} </td>
-                                    <td> {{ $item->updated_at }} </td>
-                                    <td> {{ $item->deleted_at }} </td> --}}
-                                </tr>
-                            @endif
-                        @endhasrole
+                        @foreach ($item->users as $it )
+                            @hasrole('admin')
+                            <tr>
+                                <td> {{ $it->pivot->id }} </td>
+                                <td> {{ $item->manufacturer->name}} </td>
+                                <td> {{ $item->modelorname->name }} </td>
+                                <td> {{ $item->category->name }} </td>
+                                <td> {{ $it->pivot->serial_number }} </td>
+                                <td> {{ $it->pivot->purcharse_date }} </td>
+                                <td> {{ $it->pivot->warranty_end }} </td>
+                                <td> {{ $it->email }} </td>
+                                <td> {{ $it->pivot->assignment_date }} </td>
+                            @endhasrole
+                        
+                            {{-- uzytkownik widzi tylko przedmitoy, przypisane do niego --}}
+                            @hasrole('user')
+                                @if( $it->email == Auth::user()->email  )
+                                    <tr>
+                                        <td> {{ $it->pivot->id }} </td>
+                                        <td> {{ $item->manufacturer->name}} </td>
+                                        <td> {{ $item->modelorname->name }} </td>
+                                        <td> {{ $item->category->name }} </td>
+                                        <td> {{ $it->pivot->serial_number }} </td>
+                                        <td> {{ $it->pivot->purcharse_date }} </td>
+                                        <td> {{ $it->pivot->warranty_end }} </td>
+                                        <td> {{ $it->email }} </td>
+                                        <td> {{ $it->pivot->assignment_date }} </td>
+                                    </tr>
+                                @endif
+                            @endhasrole
+                        @endforeach
                     @endforeach
+                </tbody>
             </table>
         </div>
     </div>

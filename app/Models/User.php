@@ -45,6 +45,6 @@ class User extends Authenticatable
 
     // kazdy uzytkownik moze miec wiele przedmiotow
     public function items() {
-        return $this->belongsToMany(Item::class)->withPivot('serial_number', 'purcharse_date', 'warranty_end', 'assignment_date');
+        return $this->belongsToMany(Item::class)->withPivot('id', 'serial_number', 'purcharse_date', 'warranty_end', 'assignment_date');
     }
 }
