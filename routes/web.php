@@ -58,7 +58,7 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
     // routing dla mienia
     Route::name('inventory.')->prefix('inventory')->group( function() {
-        Route::get('', [InventoryController::class, 'index'])->name('index')->middleware(['permission:itemsUsers.index']);
+        Route::get('', [InventoryController::class, 'index'])->name('index')->middleware(['permission:itemsUsers.index|itemsUsers.index_to_me']);
     });
 
     // routing dla użytkowników

@@ -56,6 +56,7 @@ return [
 
     'inventory' => [
         'title' => 'Spis mienia',
+        'titleForUsers' => 'Twoje mienie',
         'attribute' => [
             'manufacturer' => 'producent',
             'model_or_name' => 'model',

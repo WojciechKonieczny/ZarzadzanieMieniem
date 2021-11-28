@@ -43,13 +43,19 @@
           </x-nav-link>
         </li> 
         @endcan
-        @can('itemsUsers.index')
+        @canany(['itemsUsers.index', 'itemsUsers.index_to_me'])
         <li class="nav-item">         
           <x-nav-link :href="route('inventory.index')" :active="request()->routeIs('inventory.index')">
-            {{ __('translations.inventory.title') }}
+            @hasrole('admin')
+                {{ __('translations.inventory.title') }}
+            @endhasrole
+
+            @hasrole('user')
+                {{ __('translations.inventory.titleForUsers') }}
+            @endhasrole
           </x-nav-link>
         </li> 
-        @endcan
+        @endcanany
         @can('users.index')
         <li class="nav-item">         
           <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
@@ -64,11 +70,6 @@
           </x-nav-link>
         </li>             
         @endcan        
-        <li class="nav-item">
-          <x-nav-link class="disabled" aria-disabled="true">
-              Disabled
-          </x-nav-link>
-        </li>
       </ul>
       <div class="navbar-nav dropdown">
         <a href="#" class="nav-link dropdown-toggle" id="profile" 
