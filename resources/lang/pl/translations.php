@@ -84,11 +84,23 @@ return [
 
     'users' => [
         'title' => 'Użytkownicy',
+
+        'labels' => [
+            'create' => 'Dodanie nowego użytkownika'
+        ],
+
         'attribute' => [
             'name' => 'imię i nazwisko',
             'mail' => 'email',
+            'password' => 'hasło',
             'role' => 'rola',
             'count' => 'ilość mienia'
+        ],
+
+        'toasts' => [
+            'success' => [
+                'stored' => 'Dodano użytkownika :name',
+            ]
         ],
     ],
 

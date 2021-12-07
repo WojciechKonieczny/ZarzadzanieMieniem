@@ -11,6 +11,12 @@
     <div class="container">
         <h1>{{ __('translations.users.title') }}</h1>
 
+        <div class="d-flex flex-row-reverse mb-4">
+            <a href=" {{ route('users.create') }} " type="button" class="btn btn-primary" role="button"> 
+                {{ __('translations.users.labels.create') }}
+            </a>
+        </div>
+
         <div class="table-container table-responsive">
             <table class="table table-striped">
                 <thead>

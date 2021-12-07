@@ -87,6 +87,11 @@ return array(
 
 		'models_or_names' => [
 			'name_unique' => 'Istnieje już model, dla którego :attribute ma podaną wartość',
+		],
+
+		'users' => [
+			'name_unique' => 'Istnieje już użytkownik, dla którego :attribute ma podaną wartość',
+			'email_unique' => 'Istnieje już użytkownik, dla którego :attribute ma podaną wartość',
 		]
 	],
 
@@ -103,7 +108,9 @@ return array(
 
 	'attributes' => [
 		'username' => 'nazwa użytkownika',
-        'name' => 'nazwa'
+        'name' => 'nazwa',
+		'email' => 'adres email',
+		'password' => 'hasło'
     ],
 
 );
