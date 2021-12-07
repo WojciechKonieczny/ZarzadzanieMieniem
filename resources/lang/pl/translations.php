@@ -5,6 +5,11 @@ return [
         'log-viewer' => 'Logi',
     ],
 
+    'buttons' => [
+        'cancel' => 'Anuluj',
+        'store' => 'Dodaj',
+    ],
+
     'attribute' => [
         'created_at' => 'utworzono',
         'updated_at' => 'zaktualizowano',
@@ -13,9 +18,20 @@ return [
 
     'manufacturers' => [
         'title' => 'Producenci',
+
+        'labels' => [
+            'create' => 'Dodanie nowego producenta'
+        ],
+
         'attribute' => [
             'name' => 'nazwa',
             'count' => 'ilość modeli',
+        ],
+
+        'toasts' => [
+            'success' => [
+                'stored' => 'Dodano producenta :name',
+            ]
         ],
     ],
 
