@@ -1,6 +1,6 @@
 {{-- template wykorzystywany do wyswietlania wszystkich `toastow` w sesji --}}
 
-<div class="position-fixed bottom-0 end-0 ps-3" style='z-index:999'>
+<div class="position-fixed bottom-0 end-0 p-5" style='z-index:999'>
 
     <div class="toast-container">
         @if( session('success') )
