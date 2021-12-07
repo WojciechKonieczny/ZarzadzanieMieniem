@@ -26,4 +26,7 @@
         {{ $scripts }}
     </x-slot>
 
+    {{-- odpowiedzialny za wyswietlanie toastow --}}
+    @include( 'layouts.toasts' )
+
 </x-base-layout>
