@@ -45,10 +45,21 @@ return [
 
     'categories' => [
         'title' => 'Kategorie',
+
+        'labels' => [
+            'create' => 'Dodanie nowej kategorii'
+        ],
+
         'attribute' => [
             'name' => 'nazwa',
             'count' => 'ilość przedmiotów',
-        ]
+        ],
+
+        'toasts' => [
+            'success' => [
+                'stored' => 'Dodano kategorie :name',
+            ]
+        ],
     ],
 
     'items' => [

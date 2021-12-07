@@ -77,6 +77,10 @@ return array(
 			'name_unique' => 'Istnieje już producent, dla którego :attribute ma podaną wartość',
 		],
 
+		'categories' => [
+			'name_unique' => 'Istnieje już kategoria, dla którego :attribute ma podaną wartość',
+		],
+
         'products' => [
             'manufacturers' => 'Jeden z wybranych producentów nie istnieje w bazie'
         ]
