@@ -22,5 +22,5 @@ const toastFunction = () => {
     toastList.forEach( singleToast => singleToast.show() );
 };
 
-toastFunction;
+toastFunction();
 
