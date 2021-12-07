@@ -10,6 +10,11 @@
 
     <div class="container">
         <h1>{{ __('translations.models_or_names.title') }}</h1>
+        <div class="d-flex flex-row-reverse mb-4">
+            <a href=" {{ route('models.create') }} " type="button" class="btn btn-primary" role="button"> 
+                {{ __('translations.models_or_names.labels.create') }}
+            </a>
+        </div>
 
         <div class="table-container table-responsive">
             <table class="table table-striped">
@@ -17,7 +22,6 @@
                     <tr>
                         <th>#</th>
                         <th>{{ __('translations.models_or_names.attribute.name') }}</th>
-                        <th>{{ __('translations.models_or_names.attribute.count') }}</th>
                         <th>{{ __('translations.attribute.created_at') }}</th>
                         <th>{{ __('translations.attribute.updated_at') }}</th>
                         <th>{{ __('translations.attribute.deleted_at') }}</th>
@@ -29,7 +33,6 @@
                     <tr>
                         <td> {{ $model->id }} </td>
                         <td> {{ $model->name }} </td>
-                        <td> {{ $model->items_count }} </td>
                         <td> {{ $model->created_at }} </td>
                         <td> {{ $model->updated_at }} </td>
                         <td> {{ $model->deleted_at }} </td>

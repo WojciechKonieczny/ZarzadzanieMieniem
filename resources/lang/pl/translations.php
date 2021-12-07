@@ -37,9 +37,20 @@ return [
 
     'models_or_names' => [
         'title' => 'Modele',
+
+        'labels' => [
+            'create' => 'Dodanie nowego modelu'
+        ],
+
         'attribute' => [
             'name' => 'nazwa',
             'count' => 'ilość producentów',
+        ],
+
+        'toasts' => [
+            'success' => [
+                'stored' => 'Dodano model :name',
+            ]
         ],
     ],
 

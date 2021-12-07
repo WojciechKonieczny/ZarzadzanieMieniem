@@ -82,8 +82,12 @@ return array(
 		],
 
         'products' => [
-            'manufacturers' => 'Jeden z wybranych producentów nie istnieje w bazie'
-        ]
+            'name_unique' => 'Istnieje już kategoria, dla którego :attribute ma podaną wartość',
+		],
+
+		'models_or_names' => [
+			'name_unique' => 'Istnieje już model, dla którego :attribute ma podaną wartość',
+		]
 	],
 
 	/*
