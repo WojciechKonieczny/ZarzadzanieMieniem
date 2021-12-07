@@ -51,7 +51,7 @@
                                 <td> {{ $it->pivot->assignment_date }} </td>
                             @endhasrole
                         
-                            {{-- uzytkownik widzi tylko przedmitoy, przypisane do niego --}}
+                            {{-- uzytkownik widzi tylko mienie, przypisane do niego --}}
                             @hasrole('user')
                                 @if( $it->email == Auth::user()->email  )
                                     <tr>
