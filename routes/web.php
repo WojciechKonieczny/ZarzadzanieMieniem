@@ -39,31 +39,67 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
     Route::name('manufacturers.')->prefix('manufacturers')->group( function() {
          // wchodzac na /manufacturers, zostanie wywolany ten routing; osoba musi miec uprawnienia do niego (middleware)
         Route::get('', [ManufacturerController::class, 'index'])->name('index')->middleware(['permission:manufacturers.index']);
+
+        // odpowiedzialny za wyswietlanie formularza dodawania
+        Route::get('create', [ManufacturerController::class, 'create'])->name('create')->middleware(['permission:manufacturers.store']);
+
+        // odpowiedzialny za dodawanie nowych wierszy do bazy
+        Route::post('', [ManufacturerController::class, 'store'])->name('store')->middleware(['permission:manufacturers.store']);
     });
 
     // routing dla modeli
     Route::name('models.')->prefix('models')->group( function() {
         Route::get('', [ModelOrNameController::class, 'index'])->name('index')->middleware(['permission:models.index']);
+
+        // odpowiedzialny za wyswietlanie formularza dodawania
+        Route::get('create', [ModelOrNameController::class, 'create'])->name('create')->middleware(['permission:models.store']);
+
+        // odpowiedzialny za dodawanie nowych wierszy do bazy
+        Route::post('', [ModelOrNameController::class, 'store'])->name('store')->middleware(['permission:models.store']);
     });
 
      // routing dla kategorii
      Route::name('categories.')->prefix('categories')->group( function() {
         Route::get('', [CategoryController::class, 'index'])->name('index')->middleware(['permission:categories.index']);
+
+        // odpowiedzialny za wyswietlanie formularza dodawania
+        Route::get('create', [CategoryController::class, 'create'])->name('create')->middleware(['permission:categories.store']);
+
+        // odpowiedzialny za dodawanie nowych wierszy do bazy
+        Route::post('', [CategoryController::class, 'store'])->name('store')->middleware(['permission:categories.store']);
     });
 
     // routing dla przedmiotów
     Route::name('items.')->prefix('items')->group( function() {
         Route::get('', [ItemController::class, 'index'])->name('index')->middleware(['permission:items.index']);
+
+        // odpowiedzialny za wyswietlanie formularza dodawania
+        Route::get('create', [ItemController::class, 'create'])->name('create')->middleware(['permission:items.store']);
+
+        // odpowiedzialny za dodawanie nowych wierszy do bazy
+        Route::post('', [ItemController::class, 'store'])->name('store')->middleware(['permission:items.store']);
     });
 
     // routing dla mienia
     Route::name('inventory.')->prefix('inventory')->group( function() {
         Route::get('', [InventoryController::class, 'index'])->name('index')->middleware(['permission:itemsUsers.index|itemsUsers.index_to_me']);
+
+        // odpowiedzialny za wyswietlanie formularza dodawania
+        Route::get('create', [InventoryController::class, 'create'])->name('create')->middleware(['permission:itemsUsers.store']);
+
+        // odpowiedzialny za dodawanie nowych wierszy do bazy
+        Route::post('', [InventoryController::class, 'store'])->name('store')->middleware(['permission:itemsUsers.store']);
     });
 
     // routing dla użytkowników
     Route::name('users.')->prefix('users')->group( function() {
         Route::get('', [UserController::class, 'index'])->name('index')->middleware(['permission:users.index']);
+
+                // odpowiedzialny za wyswietlanie formularza dodawania
+        Route::get('create', [UserController::class, 'create'])->name('create')->middleware(['permission:users.store']);
+
+        // odpowiedzialny za dodawanie nowych wierszy do bazy
+        Route::post('', [UserController::class, 'store'])->name('store')->middleware(['permission:users.store']);
     });
 
 } );
