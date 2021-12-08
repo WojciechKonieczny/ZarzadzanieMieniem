@@ -40,10 +40,6 @@ class ItemController extends Controller
             $request->all()
         );
 
-        $manufacturer = $request->input('manufacturer_id', null);
-        $model_or_name = $request->input('model_or_name_id', null);
-        $category = $request->input('category_id', null);
-        
         // // synchronizuje nam tego producenta, ktory przesylany jest z formularza z tymi, co sa w bazie; gdy sa po stronie formmularza i bazy - nic nie zmieniaj
         // $item->manufacturer()->sync( $manufacturer );
         // $item->model_or_name()->sync( $model_or_name );
