@@ -10,6 +10,16 @@ return [
         'store' => 'Dodaj',
     ],
 
+    'labels' => [
+        'select2' => [
+            'placeholders' => [
+                'manufacturer' => 'Dell',
+                'model' => 'Latitude 5520',
+                'category' => 'Laptop',
+            ],
+        ],
+    ],
+
     'attribute' => [
         'created_at' => 'utworzono',
         'updated_at' => 'zaktualizowano',
@@ -75,11 +85,22 @@ return [
 
     'items' => [
         'title' => 'Przedmioty',
+
+        'labels' => [
+            'create' => 'Dodanie nowego przedmiotu'
+        ],
+
         'attribute' => [
             'manufacturer' => 'producent',
             'model_or_name' => 'model',
             'category' => 'kategoria'
-        ]
+        ],
+
+        'toasts' => [
+            'success' => [
+                'stored' => 'Dodano nowy przedmiot :manufacturer :model_or_name w kategorii :category',
+            ]
+        ],
     ],
 
     'users' => [

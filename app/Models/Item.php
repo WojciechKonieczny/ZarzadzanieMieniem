@@ -42,4 +42,66 @@ class Item extends Model
         return $this->belongsToMany(User::class)->withPivot('id', 'serial_number', 'purcharse_date', 'warranty_end', 'assignment_date');
     }
 
+    public function hasManufacturer($manufacturer) : bool {
+
+        // jesli jest stringiem, to ktos szuka po nazwie
+        if( is_string($manufacturer) ) {
+            return $this->manufacturer->contains('name', $manufacturer);
+        }
+
+        // jesli jest int, to ktos szuka po id producenta
+        if( is_int($manufacturer) ) {
+            return $this->manufacturer->contains('id', $manufacturer);
+        }
+
+        // jesli atrybut jest instancja modelu, czyli ktos wrzucil caly model
+        if( $manufacturer instanceof Manufacturer ) {
+            return $this->manufacturer->contains('id', $manufacturer->id);
+        }
+
+        // jesli ktos wrzuci jeszcze inny typ danych
+        return false;
+    }
+
+    public function hasModelOrName($modelOrName) : bool {
+
+        // jesli jest stringiem, to ktos szuka po nazwie
+        if( is_string($modelOrName) ) {
+            return $this->modelorname->contains('name', $modelOrName);
+        }
+
+        // jesli jest int, to ktos szuka po id modelu
+        if( is_int($modelOrName) ) {
+            return $this->modelorname->contains('id', $modelOrName);
+        }
+
+        // jesli atrybut jest instancja modelu, czyli ktos wrzucil caly model
+        if( $modelOrName instanceof ModelOrName ) {
+            return $this->modelorname->contains('id', $modelOrName->id);
+        }
+
+        // jesli ktos wrzuci jeszcze inny typ danych
+        return false;
+    }
+
+    public function hasCategory($category) : bool {
+
+        // jesli jest stringiem, to ktos szuka po nazwie
+        if( is_string($category) ) {
+            return $this->category->contains('name', $category);
+        }
+
+        // jesli jest int, to ktos szuka po id kateogrii
+        if( is_int($category) ) {
+            return $this->category->contains('id', $category);
+        }
+
+        // jesli atrybut jest instancja modelu, czyli ktos wrzucil caly model
+        if( $category instanceof Category ) {
+            return $this->category->contains('id', $category->id);
+        }
+
+        // jesli ktos wrzuci jeszcze inny typ danych
+        return false;
+    }
 }

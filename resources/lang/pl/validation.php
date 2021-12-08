@@ -92,7 +92,11 @@ return array(
 		'users' => [
 			'name_unique' => 'Istnieje już użytkownik, dla którego :attribute ma podaną wartość',
 			'email_unique' => 'Istnieje już użytkownik, dla którego :attribute ma podaną wartość',
-		]
+		],
+
+		'items' => [
+			'manufacturer_model_unique' => 'Istnieje już przedmiot w bazie o podanym producencie i modelu'
+		],
 	],
 
 	/*
