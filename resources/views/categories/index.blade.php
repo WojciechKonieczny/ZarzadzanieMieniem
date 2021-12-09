@@ -23,7 +23,6 @@
                     <tr>
                         <th>#</th>
                         <th>{{ __('translations.categories.attribute.name') }}</th>
-                        <th>{{ __('translations.categories.attribute.count') }}</th>
                         <th>{{ __('translations.attribute.created_at') }}</th>
                         <th>{{ __('translations.attribute.updated_at') }}</th>
                         <th>{{ __('translations.attribute.deleted_at') }}</th>
@@ -35,7 +34,6 @@
                     <tr>
                         <td> {{ $category->id }} </td>
                         <td> {{ $category->name }} </td>
-                        <td> {{ $category->items_count }} </td>
                         <td> {{ $category->created_at }} </td>
                         <td> {{ $category->updated_at }} </td>
                         <td> {{ $category->deleted_at }} </td>
