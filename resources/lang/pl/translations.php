@@ -17,13 +17,17 @@ return [
                 'model' => 'Latitude 5520',
                 'category' => 'Laptop',
                 'manufacturer_and_model' => 'Dell Latitude 5520',
-                'user' => 'Grzegorz Brzęczyszczykiewicz (grzegorz@interia.pl)'
+                'user' => 'Grzegorz Brzęczyszczykiewicz (grzegorz@interia.pl)',
+                'role' => 'wybierz rolę'
             ],
 
             'other' => [
                 'placeholders' => [
                     'serialnumber' => '6SM72HKl',
-                    'purcharse_date' => '29/12/1999'
+                    'purcharse_date' => '29/12/1999',
+                    'name_and_surname' => 'Grzegorz Brzęczyszczykiewicz',
+                    'email' => 'grzegorz.brzeczyszczykiewicz@gmail.com',
+                    'password' => '*********'
                 ]
             ],
         ],
@@ -102,7 +106,8 @@ return [
         'attribute' => [
             'manufacturer' => 'producent',
             'model_or_name' => 'model',
-            'category' => 'kategoria'
+            'category' => 'kategoria',
+            'users_count' => 'ilość mienia'
         ],
 
         'toasts' => [
@@ -129,7 +134,7 @@ return [
 
         'toasts' => [
             'success' => [
-                'stored' => 'Dodano użytkownika :name',
+                'stored' => 'Dodano użytkownika :email, rola: :role',
             ]
         ],
     ],

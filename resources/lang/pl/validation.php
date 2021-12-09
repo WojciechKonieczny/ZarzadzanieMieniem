@@ -93,7 +93,9 @@ return array(
 
 		'users' => [
 			'name_unique' => 'Istnieje już użytkownik, dla którego :attribute ma podaną wartość',
+			'name_regex' => ':attribute może się składać jedynie z liter oraz ewentualnej spacji',
 			'email_unique' => 'Istnieje już użytkownik, dla którego :attribute ma podaną wartość',
+			'password_min' => ':attribute musi się skladać z minimum :min znaków'
 		],
 
 		'items' => [
@@ -125,7 +127,8 @@ return array(
         'name' => 'nazwa',
 		'email' => 'adres email',
 		'password' => 'hasło',
-		'now' => 'dzisiaj'
+		'now' => 'dzisiaj',
+		'role_id' => 'rola'
     ],
 
 );

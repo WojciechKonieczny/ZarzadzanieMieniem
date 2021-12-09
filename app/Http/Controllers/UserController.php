@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Users\UserRequest;
@@ -23,7 +25,9 @@ class UserController extends Controller
      // metoda generujaca widok
      public function create() {
         return view(
-            'users.create'
+            'users.create', [
+                'roles' => Role::orderBy('name', 'DESC')->get()
+            ]
         );
     }
 
@@ -31,18 +35,25 @@ class UserController extends Controller
     public function store(UserRequest $request) {
         // jesli w modelu w $fillable nazwy zgadzaja sie z nazwami pol formularza, to moge uzyc $request->all()
 
-        $user = User::create(
-            $request->merge([
-                'password' => Hash::make( $request->password ),
-                'created_by' => Auth::id()
-            ])->all()
-        );
+        $newUser = DB::transaction(function () use ($request) {
 
-        $user->assignRole( config('app.user_role') );
+            $user = User::create(
+                $request->merge([
+                    'password' => Hash::make( $request->password ),
+                    'created_by' => Auth::id()
+                ])->all()
+            );
+    
+            $user->assignRole( $request->role_id );
+
+            return $user;
+        });
+        
 
         return redirect()->route('users.index')->with( 'success', __('translations.users.toasts.success.stored', [
-            'name' => $user->name
-        ]));
+            'email' => $newUser->email,
+            'role' => $newUser->getRoleNames()->first()
+         ]));
     }
 
 }
