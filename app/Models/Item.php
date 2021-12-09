@@ -84,6 +84,28 @@ class Item extends Model
         return false;
     }
 
+    public function hasUser($user) : bool {
+
+        // jesli jest stringiem, to ktos szuka po nazwie
+        if( is_string($user) ) {
+            return $this->user->contains('name', $user);
+        }
+
+        // jesli jest int, to ktos szuka po id kateogrii
+        if( is_int($user) ) {
+            return $this->user->contains('id', $user);
+        }
+
+        // jesli atrybut jest instancja modelu, czyli ktos wrzucil caly model
+        if( $user instanceof User ) {
+            return $this->user->contains('id', $user->id);
+        }
+
+        // jesli ktos wrzuci jeszcze inny typ danych
+        return false;
+
+    }
+
     public function hasCategory($category) : bool {
 
         // jesli jest stringiem, to ktos szuka po nazwie

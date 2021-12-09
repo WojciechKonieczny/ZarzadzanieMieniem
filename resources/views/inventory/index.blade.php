@@ -12,6 +12,12 @@
         <h1>
             @hasrole('admin')
                 {{ __('translations.inventory.title') }}
+
+                <div class="d-flex flex-row-reverse mb-4">
+                    <a href=" {{ route('inventory.create') }} " type="button" class="btn btn-primary" role="button"> 
+                        {{ __('translations.inventory.labels.create') }}
+                    </a>
+                </div>
             @endhasrole
 
             @hasrole('user')

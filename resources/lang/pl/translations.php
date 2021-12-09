@@ -16,6 +16,15 @@ return [
                 'manufacturer' => 'Dell',
                 'model' => 'Latitude 5520',
                 'category' => 'Laptop',
+                'manufacturer_and_model' => 'Dell Latitude 5520',
+                'user' => 'Grzegorz Brzęczyszczykiewicz (grzegorz@interia.pl)'
+            ],
+
+            'other' => [
+                'placeholders' => [
+                    'serialnumber' => '6SM72HKl',
+                    'purcharse_date' => '29/12/1999'
+                ]
             ],
         ],
     ],
@@ -127,6 +136,11 @@ return [
 
     'inventory' => [
         'title' => 'Spis mienia',
+
+        'labels' => [
+            'create' => 'Przypisanie nowego mienia'
+        ],
+
         'titleForUsers' => 'Twoje mienie',
         'attribute' => [
             'manufacturer' => 'producent',
@@ -134,9 +148,17 @@ return [
             'category' => 'kategoria',
             'user' => 'użytkownik',
             'serial_number' => 'identyfikator',
-            'purcharse_date' => 'zakup',
-            'warranty_end' => 'koniec gwarancji',
-            'assignment_date' => 'przypisanie'
-        ]
+            'purcharse_date' => 'data zakupu',
+            'warranty_end' => 'data zakończenia gwarancji',
+            'assignment_date' => 'data przypisania',
+            'item' => 'przedmiot',
+            'now' => 'dzisiejsza'
+        ],
+
+        'toasts' => [
+            'success' => [
+                'stored' => 'Przypisano przedmiot: :manufacturer :model_or_name do użytkownika: :user',
+            ]
+        ],
     ],
 ];

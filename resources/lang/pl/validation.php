@@ -9,6 +9,8 @@ return array(
 	"alpha_num"            => ":attribute może zawierać tylko litery i cyfry.",
 	"array"                => ":attribute musi być tablicą.",
 	"before"               => ":attribute musi być datą wcześniejszą niż :date.",
+	"before_or_equal"	   => ":attribute nie może być datą późniejszą, niż :date",
+	"after_or_equal"	   => ":attribute nie może być datą wcześniejszą, niż :date",
 	"between"              => array(
 		"numeric" => ":attribute musi być wartością pomiędzy :min i :max.",
 		"file"    => ":attribute musi mieć pomiędzy :min a :max kilobajtów.",
@@ -97,6 +99,14 @@ return array(
 		'items' => [
 			'manufacturer_model_unique' => 'Istnieje już przedmiot w bazie o podanym producencie i modelu'
 		],
+
+		'inventory' => [
+			'now_before_or_equal' => ':attribute nie może być późniejsza, niż dzisiejsza data',
+			'purcharse_date_before_assignment_date' => ':attribute nie może być późniejsza, niż data przypisania',
+			'warranty_end_after_or_equal' => ':attribute nie może być wcześniejsza, niż data zakupu',
+			'serial_number_unique' => 'Istnieje już przedmiot, dla którego :attribute ma podaną wartość',
+			'serial_number_regex' => ':attribute musi spełniać następujące wymagania: jest nullem, bądź ma długość od 5 do 12 znaków oraz składać się wyłącznie z cyfr i dużych liter'
+		]
 	],
 
 	/*
@@ -114,7 +124,8 @@ return array(
 		'username' => 'nazwa użytkownika',
         'name' => 'nazwa',
 		'email' => 'adres email',
-		'password' => 'hasło'
+		'password' => 'hasło',
+		'now' => 'dzisiaj'
     ],
 
 );
