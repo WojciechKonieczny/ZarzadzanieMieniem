@@ -23,7 +23,9 @@
                     <div class="row mb-3">
                         <label for="user-name" class="col-sm-2 col-form-label">{{ __('translations.users.attribute.name') }}:</label>
                         <div class="col-sm-10">
-                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="user-name" value="{{ old('name') }}">
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('translations.labels.select2.other.placeholders.name_and_surname') }}"
+                                id="user-name" value="{{ old('name') }}"
+                            >
                             @error('name')
                                 <span class="invalid-feedback" role="alert"> {{ $message }} </span>
                             @enderror
@@ -33,7 +35,9 @@
                     <div class="row mb-3">
                         <label for="user-mail" class="col-sm-2 col-form-label">{{ __('translations.users.attribute.mail') }}:</label>
                         <div class="col-sm-10">
-                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="user-mail" value="{{ old('email') }}">
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('translations.labels.select2.other.placeholders.email') }}"
+                                id="user-mail" value="{{ old('email') }}"
+                            >
                             @error('email')
                                 <span class="invalid-feedback" role="alert"> {{ $message }} </span>
                             @enderror
@@ -43,8 +47,33 @@
                     <div class="row mb-3">
                         <label for="user-password" class="col-sm-2 col-form-label">{{ __('translations.users.attribute.password') }}:</label>
                         <div class="col-sm-10">
-                            <input type="password" name="password" class="form-control @error('email') is-invalid @enderror" id="user-password" value="{{ old('email') }}">
+                            <input type="password" name="password" class="form-control @error('email') is-invalid @enderror" placeholder="{{ __('translations.labels.select2.other.placeholders.password') }}"
+                                id="user-password" value="{{ old('email') }}"
+                            >
                             @error('password')
+                                <span class="invalid-feedback" role="alert"> {{ $message }} </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-3 ">
+                        <label for="role_id" class="col-sm-2 col-form-label">{{ __('translations.users.attribute.role') }}:</label>
+                        <div class="col-sm-10">
+
+                            <select name="role_id" id="role_id" data-placeholder="{{ __('translations.labels.select2.placeholders.role') }}"
+                                    class="form-control select2 @error('role_id') is-invalid @enderror">
+
+                                    <option></option>
+                                    
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->id }}"
+                                            @if( old('role_id') && old('role_id') == $role->id ) 
+                                                selected
+                                            @endif   
+                                        >{{ $role->name }}</option>
+                                    @endforeach
+                            </select>
+                            @error('role_id')
                                 <span class="invalid-feedback" role="alert"> {{ $message }} </span>
                             @enderror
                         </div>

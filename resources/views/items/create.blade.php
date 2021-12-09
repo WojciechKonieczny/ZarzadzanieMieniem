@@ -26,7 +26,7 @@
                         <div class="col-sm-10">
 
                             <select name="manufacturer_id" id="manufacturer" data-placeholder="{{ __('translations.labels.select2.placeholders.manufacturer') }}"
-                                    class="form-control select2 @error('manufacturer_id') is-invalid @enderror"">
+                                    class="form-control select2 @error('manufacturer_id') is-invalid @enderror">
 
                                     <option></option>
                                     
@@ -51,7 +51,7 @@
                         <div class="col-sm-10">
 
                             <select name="model_or_name_id" id="model_or_name"data-placeholder="{{ __('translations.labels.select2.placeholders.model') }}"
-                                    class="form-control select2 @error('model_or_name_id') is-invalid @enderror"">
+                                    class="form-control select2 @error('model_or_name_id') is-invalid @enderror">
 
                                     <option></option>
                                     
@@ -76,7 +76,7 @@
                         <div class="col-sm-10">
 
                             <select name="category_id" id="category" data-placeholder="{{ __('translations.labels.select2.placeholders.category') }}"
-                                    class="form-control select2 @error('category_id') is-invalid @enderror"">
+                                    class="form-control select2 @error('category_id') is-invalid @enderror">
 
                                     <option></option>
                                     

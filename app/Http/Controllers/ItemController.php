@@ -18,7 +18,7 @@ class ItemController extends Controller
         return view(
             'items.index', // nazwa szablony
             [
-                'items' => Item::with('manufacturer', 'modelorname', 'category')->get()
+                'items' => Item::with('manufacturer', 'modelorname', 'category')->withCount('users')->get()
             ]
         );
     }

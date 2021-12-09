@@ -25,6 +25,7 @@
                         <th>{{ __('translations.items.attribute.manufacturer') }}</th>
                         <th>{{ __('translations.items.attribute.model_or_name') }}</th>
                         <th>{{ __('translations.items.attribute.category') }}</th>
+                        <th>{{ __('translations.items.attribute.users_count') }}</th>
                         <th>{{ __('translations.attribute.created_at') }}</th>
                         <th>{{ __('translations.attribute.updated_at') }}</th>
                         <th>{{ __('translations.attribute.deleted_at') }}</th>
@@ -38,6 +39,7 @@
                         <td> {{ $item->manufacturer->name}} </td>
                         <td> {{ $item->modelorname->name }} </td>
                         <td> {{ $item->category->name }} </td>
+                        <td> {{ $item->users_count}} </td>
                         <td> {{ $item->created_at }} </td>
                         <td> {{ $item->updated_at }} </td>
                         <td> {{ $item->deleted_at }} </td>
