@@ -28,7 +28,7 @@ class CreateItemUserTable extends Migration
             /*
             * pozostale atrybuty
             */
-            $table->string('serial_number',12)->nullable();
+            $table->string('serial_number',12)->nullable()->unique();
             $table->date('purcharse_date')->nullable();
             $table->date('warranty_end')->nullable();
             $table->date('assignment_date')->nullable();
