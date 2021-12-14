@@ -40,4 +40,31 @@ class CategoryController extends Controller
         ]));
     }
 
+    // wyswietlajaca formularz
+    public function edit(Category $category) {
+        $isEdit = true;
+
+        return view(
+            'categories.create',
+            compact( 'category', ['isEdit'] )
+        );
+    }
+
+    // wysylajace dane do bazy
+    public function update(CategoryRequest $request, Category $category) {
+        $category->fill(
+            $request->merge([
+                'created_by' => Auth::id()
+            ])->all()
+        )->save();
+
+        return redirect()->route('categories.index')->with(
+            'success', 
+            // sprawdzamy, czy zostaly zmienione jakies dane, by wysswietlic prawdilowy komunikat
+            __( $category->wasChanged()? 'translations.categories.toasts.success.updated' : 'translations.categories.toasts.success.nothing-changed', [ 
+                'name' => $category->name 
+            ])
+        );
+    }
+
 }
