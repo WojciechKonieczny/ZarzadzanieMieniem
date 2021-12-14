@@ -8,6 +8,7 @@ return [
     'buttons' => [
         'cancel' => 'Anuluj',
         'store' => 'Dodaj',
+        'update' => 'Aktualizuj',
     ],
 
     'labels' => [
@@ -43,7 +44,9 @@ return [
         'title' => 'Producenci',
 
         'labels' => [
-            'create' => 'Dodanie nowego producenta'
+            'create' => 'Dodanie nowego producenta',
+            'edit' => 'Edycja producenta',
+            'delete' => 'Usunięciei producenta',
         ],
 
         'attribute' => [
@@ -54,6 +57,8 @@ return [
         'toasts' => [
             'success' => [
                 'stored' => 'Dodano producenta :name',
+                'updated' => 'Zaktualizowano producenta :name',
+                'nothing-changed' => 'Dane producenta :name nie zmieniły się',
             ]
         ],
     ],
@@ -62,7 +67,9 @@ return [
         'title' => 'Modele',
 
         'labels' => [
-            'create' => 'Dodanie nowego modelu'
+            'create' => 'Dodanie nowego modelu',
+            'edit' => 'Edycja modelu',
+            'delete' => 'Usunięcie modelu',
         ],
 
         'attribute' => [
@@ -73,6 +80,8 @@ return [
         'toasts' => [
             'success' => [
                 'stored' => 'Dodano model :name',
+                'updated' => 'Zaktualizowano model :name',
+                'nothing-changed' => 'Dane modelu :name nie zmieniły się',
             ]
         ],
     ],
@@ -81,7 +90,9 @@ return [
         'title' => 'Kategorie',
 
         'labels' => [
-            'create' => 'Dodanie nowej kategorii'
+            'create' => 'Dodanie nowej kategorii',
+            'edit' => 'Edycja kategorii',
+            'delete' => 'Usunięcie kategorii'
         ],
 
         'attribute' => [
@@ -92,6 +103,8 @@ return [
         'toasts' => [
             'success' => [
                 'stored' => 'Dodano kategorie :name',
+                'updated' => 'Zaktualizowano kategorie :name',
+                'nothing-changed' => 'Dane kategorii :name nie zmieniły się',
             ]
         ],
     ],
@@ -100,7 +113,9 @@ return [
         'title' => 'Przedmioty',
 
         'labels' => [
-            'create' => 'Dodanie nowego przedmiotu'
+            'create' => 'Dodanie nowego przedmiotu',
+            'edit' => 'Edycja przedmiotu',
+            'delete' => 'Usunięcie przedmiotu',
         ],
 
         'attribute' => [
@@ -113,6 +128,8 @@ return [
         'toasts' => [
             'success' => [
                 'stored' => 'Dodano nowy przedmiot :manufacturer :model_or_name w kategorii :category',
+                'updated' => 'Zaktualizowano przedmiot :manufacturer :model_or_name w kategorii :category',
+                'nothing-changed' => 'Dane przedmiotu :manufacturer :model_or_name nie zmieniły się',
             ]
         ],
     ],
@@ -121,7 +138,9 @@ return [
         'title' => 'Użytkownicy',
 
         'labels' => [
-            'create' => 'Dodanie nowego użytkownika'
+            'create' => 'Dodanie nowego użytkownika',
+            'edit' => 'Edycja użytkownika',
+            'delete' => 'Usunięcie użytkownika',
         ],
 
         'attribute' => [
@@ -135,6 +154,8 @@ return [
         'toasts' => [
             'success' => [
                 'stored' => 'Dodano użytkownika :email, rola: :role',
+                'updated' => 'Zaktualizowano użytkownika :email',
+                'nothing-changed' => 'Dane użytkownika :email nie zmieniły się',
             ]
         ],
     ],
@@ -143,7 +164,9 @@ return [
         'title' => 'Spis mienia',
 
         'labels' => [
-            'create' => 'Przypisanie nowego mienia'
+            'create' => 'Przypisanie nowego mienia',
+            'edit' => 'Edycja mienia',
+            'delete' => 'Usunięcie mienia',
         ],
 
         'titleForUsers' => 'Twoje mienie',
@@ -163,6 +186,8 @@ return [
         'toasts' => [
             'success' => [
                 'stored' => 'Przypisano przedmiot: :manufacturer :model_or_name do użytkownika: :user',
+                'updated' => 'Zaktualizowano mienie :manufacturer :model_or_name o numerze :serial_number',
+                'nothing-changed' => 'Dane mienia :manufacturer :model_or_name o numerze :serial_number nie zmieniły się',
             ]
         ],
     ],

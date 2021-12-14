@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Manufacturers;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ManufacturerRequest extends FormRequest
@@ -24,7 +25,10 @@ class ManufacturerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:25', 'unique:manufacturers']
+            'name' => [
+                'required', 'string', 'max:25', 
+                Rule::unique('manufacturers')->ignore($this->manufacturer) // potrzebne, by podczas edycji i zostawieniu wpisanej wartości, nie krzyczał błędem o tym, że jest zduplikowana wartość
+            ],
         ];
     }
 

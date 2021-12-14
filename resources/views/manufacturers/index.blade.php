@@ -27,6 +27,7 @@
                         <th>{{ __('translations.attribute.created_at') }}</th>
                         <th>{{ __('translations.attribute.updated_at') }}</th>
                         <th>{{ __('translations.attribute.deleted_at') }}</th>
+                        <th class="always-visible"></th>
                     </tr>
                 </thead>
 
@@ -39,6 +40,17 @@
                         <td> {{ $manufacturer->created_at }} </td>
                         <td> {{ $manufacturer->updated_at }} </td>
                         <td> {{ $manufacturer->deleted_at }} </td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="action buttons">
+                                @can('manufacturers.store')
+                                    <x-datatables.action-link class="btn btn-primary"
+                                        url="{{ route('manufacturers.edit', $manufacturer) }}" {{-- atrybut url przekazywany do komponentu --}}
+                                        title="{{ __('translations.manufacturers.labels.edit') }}">
+                                        <i class="bi-pencil"></i>
+                                    </x-action-link>
+                                @endcan
+                            </div>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

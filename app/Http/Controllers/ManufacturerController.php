@@ -41,4 +41,31 @@ class ManufacturerController extends Controller
         ]));
     }
 
+    // wyswietlajaca formularz
+    public function edit(Manufacturer $manufacturer) {
+        $isEdit = true;
+
+        return view(
+            'manufacturers.create',
+            compact( 'manufacturer', ['isEdit'] )
+        );
+    }
+
+    // wysylajace dane do bazy
+    public function update(ManufacturerRequest $request, Manufacturer $manufacturer) {
+        $manufacturer->fill(
+            $request->merge([
+                'created_by' => Auth::id()
+            ])->all()
+        )->save();
+
+        return redirect()->route('manufacturers.index')->with(
+            'success', 
+            // sprawdzamy, czy zostaly zmienione jakies dane, by wysswietlic prawdilowy komunikat
+            __( $manufacturer->wasChanged()? 'translations.manufacturers.toasts.success.updated' : 'translations.manufacturers.toasts.success.nothing-changed', [ 
+                'name' => $manufacturer->name 
+            ])
+        );
+    }
+
 }

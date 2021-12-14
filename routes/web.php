@@ -45,6 +45,12 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
         // odpowiedzialny za dodawanie nowych wierszy do bazy
         Route::post('', [ManufacturerController::class, 'store'])->name('store')->middleware(['permission:manufacturers.store']);
+
+        // odpowiedzialny za wyswietlanie formularza od edycji
+        Route::get('{manufacturer}/edit', [ManufacturerController::class, 'edit'])->where('manufacturer', '[0-9]+')->name('edit')->middleware(['permission:manufacturers.store']);
+
+        // odpowiedzialny za przesylanie zedytowanego formularza do bazy
+        Route::patch('{manufacturer}/edit', [ManufacturerController::class, 'update'])->where('manufacturer', '[0-9]+')->name('update')->middleware(['permission:manufacturers.store']);
     });
 
     // routing dla modeli
