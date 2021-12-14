@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\ModelsOrNames;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ModelOrNameRequest extends FormRequest
@@ -24,7 +25,10 @@ class ModelOrNameRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:25', 'unique:model_or_names']
+            'name' => [
+                'required', 'string', 'max:25', 
+                Rule::unique('model_or_names')->ignore($this->model_or_name) // potrzebne, by podczas edycji i zostawieniu wpisanej wartości, nie krzyczał błędem o tym, że jest zduplikowana wartość
+            ]
         ];
     }
 

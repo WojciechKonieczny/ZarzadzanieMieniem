@@ -62,6 +62,12 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
         // odpowiedzialny za dodawanie nowych wierszy do bazy
         Route::post('', [ModelOrNameController::class, 'store'])->name('store')->middleware(['permission:models.store']);
+
+        // odpowiedzialny za wyswietlanie formularza od edycji
+        Route::get('{model_or_name}/edit', [ModelOrNameController::class, 'edit'])->where('model', '[0-9]+')->name('edit')->middleware(['permission:models.store']);
+
+        // odpowiedzialny za przesylanie zedytowanego formularza do bazy
+        Route::patch('{model_or_name}/edit', [ModelOrNameController::class, 'update'])->where('model', '[0-9]+')->name('update')->middleware(['permission:models.store']);
     });
 
      // routing dla kategorii
