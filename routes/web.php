@@ -118,6 +118,12 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
         // odpowiedzialny za dodawanie nowych wierszy do bazy
         Route::post('', [UserController::class, 'store'])->name('store')->middleware(['permission:users.store']);
+
+        // odpowiedzialny za wyswietlanie formularza od edycji
+        Route::get('{user}/edit', [UserController::class, 'edit'])->where('user', '[0-9]+')->name('edit')->middleware(['permission:users.store']);
+
+        // odpowiedzialny za przesylanie zedytowanego formularza do bazy
+        Route::patch('{user}/edit', [UserController::class, 'update'])->where('user', '[0-9]+')->name('update')->middleware(['permission:users.store']);
     });
 
 } );

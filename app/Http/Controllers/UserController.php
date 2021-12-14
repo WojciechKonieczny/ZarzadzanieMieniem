@@ -56,4 +56,37 @@ class UserController extends Controller
          ]));
     }
 
+    // wyswietlajaca formularz
+    public function edit(Request $request, User $user) {
+        $isEdit = true;
+        $roles = Role::orderBy('name', 'DESC')->get();
+
+        return view(
+            'users.create',
+            compact( 'user', 'isEdit', 'roles' )
+        );
+    }
+
+    // wysylajace dane do bazy
+    public function update(UserRequest $request, User $user) {
+
+        $user->fill(
+            $request->merge([
+                'password' => Hash::make( $request->password ),
+                'created_by' => Auth::id()
+            ])->all()
+        )->save();
+
+        $user->roles()->sync([$request->role_id]);
+
+        return redirect()->route('users.index')->with(
+            'success', 
+            // sprawdzamy, czy zostaly zmienione jakies dane, by wysswietlic prawdilowy komunikat
+            __( $user->wasChanged()? 'translations.users.toasts.success.updated' : 'translations.users.toasts.success.nothing-changed', [ 
+                'email' => $user->email,
+                'role' => $user->getRoleNames()->first()
+            ])
+        );
+    }
+
 }
