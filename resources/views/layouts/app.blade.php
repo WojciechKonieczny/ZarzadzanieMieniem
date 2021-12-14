@@ -1,6 +1,6 @@
 {{-- widok uzytkownikow zalogowanych --}}
 
-@props( ['styles' => '', 'scripts' => ''] );
+@props( ['styles' => '', 'scripts' => ''] )
 
 {{-- wykorzystanie komponentu Base.blade.php --}}
 <x-base-layout>

@@ -1,7 +1,7 @@
 {{-- szablon strony - bedziemy 'punktem wyjscia' do budowania kazdego widoku w aplikacji --}}
 
 {{-- bedziemy przekazywac lokalne style CSS oraz skrypty (kazda strona bedzie miala dodatkowe - swoje, lokalne style) --}}
-@props( [ 'styles' => '', 'scripts' => '' ] );
+@props( [ 'styles' => '', 'scripts' => '' ] )
 
 <!DOCTYPE html>
 <html lang="en">
