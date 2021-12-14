@@ -28,6 +28,8 @@ mix.js('resources/js/*.js', 'public/js')
     .sass('resources/sass/inventory.scss', 'public/css')
     .sass('resources/sass/form.scss', 'public/css')
     .copy('resources/views/vendor/datatables/i18n/pl.json', 'public/vendor/datatables/i18n')  // wtyczka nie ma dostepu do katalogu resources, wiec musimy przerzucic pliki tlumaczen do publica
+    .copy('vendor/proengsoft/laravel-jsvalidation/resources/views', 'resources/views/vendor/jsvalidation')
+    .copy('vendor/proengsoft/laravel-jsvalidation/public', 'resources/js/vendor/jsvalidation')
     .sourceMaps()
     // rozbicie kompilacji js
     .extract();

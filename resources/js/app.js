@@ -22,5 +22,16 @@ const toastFunction = () => {
     toastList.forEach( singleToast => singleToast.show() );
 };
 
-toastFunction();
+const tooltipFunction = ( object ) => {
+    const tooltipNodes = object.querySelectorAll(`[data-bs-toggle="tooltip"]`);
+    const tooltipsTab = [...tooltipNodes];
 
+    const tooltipsList = tooltipsTab.map( singleTooltip => {
+        return new bootstrap.Tooltip( singleTooltip );
+    });
+};
+
+toastFunction();
+tooltipFunction( document );
+
+require('./vendor/jsvalidation/js/jsvalidation');
