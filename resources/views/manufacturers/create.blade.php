@@ -7,9 +7,9 @@
     <x-slot name="scripts">
         <script src="{{ asset('js/manufacturers.js') }}"></script>
 
-        {{!!
+        {!!
             JsValidator::formRequest('App\Http\Requests\Manufacturers\ManufacturerRequest');
-        !!}}
+        !!}
     </x-slot>
 
     <div class="container">
