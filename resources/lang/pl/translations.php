@@ -78,6 +78,10 @@ return [
             'create' => 'Dodanie nowego modelu',
             'edit' => 'Edycja modelu',
             'delete' => 'Usunięcie modelu',
+            'destroy' => 'Usunięcie modelu',
+            'destroy-question' => 'Czy na pewno usunąć model :name?',
+            'restore' => 'Przywrócenie modelu',
+            'restore-question' => 'Czy na pewno przywrócić model :name?',
         ],
 
         'attribute' => [
@@ -90,6 +94,8 @@ return [
                 'stored' => 'Dodano model :name',
                 'updated' => 'Zaktualizowano model :name',
                 'nothing-changed' => 'Dane modelu :name nie zmieniły się',
+                'destroy' => 'Model :name został usunięty',
+                'restore' => 'Model :name został przywrócony'
             ]
         ],
     ],
@@ -100,7 +106,11 @@ return [
         'labels' => [
             'create' => 'Dodanie nowej kategorii',
             'edit' => 'Edycja kategorii',
-            'delete' => 'Usunięcie kategorii'
+            'delete' => 'Usunięcie kategorii',
+            'destroy' => 'Usunięcie kateogrii',
+            'destroy-question' => 'Czy na pewno usunąć kategorię :name?',
+            'restore' => 'Przywrócenie kategorii',
+            'restore-question' => 'Czy na pewno przywrócić kategorię :name?',
         ],
 
         'attribute' => [
@@ -113,6 +123,8 @@ return [
                 'stored' => 'Dodano kategorie :name',
                 'updated' => 'Zaktualizowano kategorie :name',
                 'nothing-changed' => 'Dane kategorii :name nie zmieniły się',
+                'destroy' => 'Kategoria :name została usunięta',
+                'restore' => 'Kategoria :name została przywrócona'
             ]
         ],
     ],
@@ -124,6 +136,10 @@ return [
             'create' => 'Dodanie nowego przedmiotu',
             'edit' => 'Edycja przedmiotu',
             'delete' => 'Usunięcie przedmiotu',
+            'destroy' => 'Usunięcie przedmiotu',
+            'destroy-question' => 'Czy na pewno usunąć przedmiot :manufacturer :model_or_name?',
+            'restore' => 'Przywrócenie przedmiotu',
+            'restore-question' => 'Czy na pewno przywrócić przedmiot :manufacturer :model_or_name?',
         ],
 
         'attribute' => [
@@ -138,6 +154,8 @@ return [
                 'stored' => 'Dodano nowy przedmiot :manufacturer :model_or_name w kategorii :category',
                 'updated' => 'Zaktualizowano przedmiot :manufacturer :model_or_name w kategorii :category',
                 'nothing-changed' => 'Dane przedmiotu :manufacturer :model_or_name nie zmieniły się',
+                'destroy' => 'Przedmiot :manufacturer :model_or_name został usunięty',
+                'restore' => 'Przedmiot :manufacturer :model_or_name został przywrócony'
             ]
         ],
     ],
@@ -149,6 +167,10 @@ return [
             'create' => 'Dodanie nowego użytkownika',
             'edit' => 'Edycja użytkownika',
             'delete' => 'Usunięcie użytkownika',
+            'destroy' => 'Usunięcie użytkownika',
+            'destroy-question' => 'Czy na pewno usunąć użytkownika?',
+            'restore' => 'Przywrócenie użytkownika',
+            'restore-question' => 'Czy na pewno przywrócić użytkownika?',
         ],
 
         'attribute' => [
@@ -164,6 +186,8 @@ return [
                 'stored' => 'Dodano użytkownika :email, rola: :role',
                 'updated' => 'Zaktualizowano użytkownika :email',
                 'nothing-changed' => 'Dane użytkownika :email nie zmieniły się',
+                'destroy' => 'Użytkownik :manufacturer :email został usunięty',
+                'restore' => 'Użytkownik :manufacturer :email został przywrócony'
             ]
         ],
     ],
@@ -175,6 +199,10 @@ return [
             'create' => 'Przypisanie nowego mienia',
             'edit' => 'Edycja mienia',
             'delete' => 'Usunięcie mienia',
+            'destroy' => 'Usunięcie mienia',
+            'destroy-question' => 'Czy na pewno usunąć mienie :manufacturer :model_or_name?',
+            'restore' => 'Przywrócenie mienia',
+            'restore-question' => 'Czy na pewno przywrócić menie :manufacturer :model_or_name?',
         ],
 
         'titleForUsers' => 'Twoje mienie',
@@ -196,6 +224,8 @@ return [
                 'stored' => 'Przypisano przedmiot: :manufacturer :model_or_name do użytkownika: :user',
                 'updated' => 'Zaktualizowano mienie :manufacturer :model_or_name o numerze :serial_number',
                 'nothing-changed' => 'Dane mienia :manufacturer :model_or_name o numerze :serial_number nie zmieniły się',
+                'destroy' => 'Mienie :manufacturer :model_or_name zostało usunięte',
+                'restore' => 'Mienie :manufacturer :model_or_name zostało przywrócone',
             ]
         ],
     ],
