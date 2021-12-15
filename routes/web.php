@@ -160,6 +160,12 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
         // odpowiedzialny za przesylanie zedytowanego formularza do bazy
         Route::patch('{user}/edit', [UserController::class, 'update'])->where('user', '[0-9]+')->name('update')->middleware(['permission:users.store']);
+
+        //usuwanie
+        Route::delete('{user}', [UserController::class, 'destroy'])->where('user', '[0-9]+')->name('destroy')->middleware(['permission:users.destroy']);
+
+        // przywracanie
+        Route::put('{id}/restore', [UserController::class, 'restore'])->where('id', '[0-9]+')->name('restore')->middleware(['permission:users.destroy']);
     });
 
 } );

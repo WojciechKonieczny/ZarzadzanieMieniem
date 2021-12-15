@@ -20,7 +20,7 @@ class InventoryController extends Controller
         return view(
             'inventory.index', // nazwa szablony
             [
-                'items' => Item::with('manufacturer', 'modelorname', 'category', 'users')->get()
+                'items' => Item::with('manufacturer', 'modelorname', 'category', 'users')->withTrashed()->get()
 
                 // 'items' => DB::table('item_user')
                 //             ->join('items', 'item_user.item_id', 'items.id')

@@ -168,9 +168,9 @@ return [
             'edit' => 'Edycja użytkownika',
             'delete' => 'Usunięcie użytkownika',
             'destroy' => 'Usunięcie użytkownika',
-            'destroy-question' => 'Czy na pewno usunąć użytkownika?',
+            'destroy-question' => 'Czy na pewno usunąć użytkownika :email?',
             'restore' => 'Przywrócenie użytkownika',
-            'restore-question' => 'Czy na pewno przywrócić użytkownika?',
+            'restore-question' => 'Czy na pewno przywrócić użytkownika :email?',
         ],
 
         'attribute' => [
@@ -186,8 +186,8 @@ return [
                 'stored' => 'Dodano użytkownika :email, rola: :role',
                 'updated' => 'Zaktualizowano użytkownika :email',
                 'nothing-changed' => 'Dane użytkownika :email nie zmieniły się',
-                'destroy' => 'Użytkownik :manufacturer :email został usunięty',
-                'restore' => 'Użytkownik :manufacturer :email został przywrócony'
+                'destroy' => 'Użytkownik :email został usunięty',
+                'restore' => 'Użytkownik :email został przywrócony'
             ]
         ],
     ],

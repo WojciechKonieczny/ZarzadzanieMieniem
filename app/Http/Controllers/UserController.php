@@ -17,7 +17,7 @@ class UserController extends Controller
         return view(
             'users.index',
             [
-                'users' => User::with('roles')->withCount('items')->get()
+                'users' => User::with('roles')->withCount('items')->withTrashed()->get()
             ],
         );
     }
@@ -87,6 +87,24 @@ class UserController extends Controller
                 'role' => $user->getRoleNames()->first()
             ])
         );
+    }
+
+    public function destroy(User $user) {
+        $user->delete();
+
+        return redirect()->route('users.index')->with( 'success', __('translations.users.toasts.success.destroy', [
+            'email' => $user->email
+        ]));
+    }
+
+    public function restore(int $id) {
+        $user = User::onlyTrashed()->findOrFail($id);
+        $user->restore();
+
+        return redirect()->route('users.index')->with( 'success', __('translations.users.toasts.success.restore', [
+            'email' => $user->email
+        ]));
+
     }
 
 }

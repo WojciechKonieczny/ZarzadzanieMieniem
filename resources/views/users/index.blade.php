@@ -57,6 +57,30 @@
                                         <i class="bi-pencil"></i>
                                     </x-action-link>
                                 @endcan
+
+                                @can('users.destroy')
+                                @if( $user->deleted_at == null )
+                                    <x-datatables.confirm
+                                        :action="route('users.destroy', $user)" method="DELETE"
+                                        :confirm-text="__('translations.buttons.yes')" confirm-class="btn btn-danger me-2"
+                                        :cancel-text="__('translations.buttons.no')" cancel-class="btn btn-secondary ms-2"
+                                        icon="question"
+                                        :message="__('translations.users.labels.destroy-question', ['email' => $user->email] )" 
+                                        button-class="btn btn-danger" :button-title="__('translations.users.labels.destroy')">
+                                        <i class="bi bi-trash"></i>
+                                    </x-confirm>
+                                @else
+                                    <x-datatables.confirm
+                                        :action="route('users.restore', $user)" method="PUT"
+                                        :confirm-text="__('translations.buttons.yes')" confirm-class="btn btn-success me-2"
+                                        :cancel-text="__('translations.buttons.no')" cancel-class="btn btn-secondary ms-2"
+                                        icon="question"
+                                        :message="__('translations.users.labels.restore-question', ['email' => $user->email] )" 
+                                        button-class="btn btn-success" :button-title="__('translations.users.labels.restore')">
+                                        <i class="bi bi-trash"></i>
+                                    </x-confirm>
+                                @endif
+                            @endcan
                             </div>
                         </td>
                     </tr>
