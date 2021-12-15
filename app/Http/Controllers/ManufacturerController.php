@@ -68,4 +68,22 @@ class ManufacturerController extends Controller
         );
     }
 
+    public function destroy(Manufacturer $manufacturer) {
+        $manufacturer->delete();
+
+        return redirect()->route('manufacturers.index')->with( 'success', __('translations.manufacturers.toasts.success.destroy', [
+            'name' => $manufacturer->name
+        ]));
+    }
+
+    public function restore(int $id) {
+        $manufacturer = Manufacturer::onlyTrashed()->findOrFail($id);
+        $manufacturer->restore();
+
+        return redirect()->route('manufacturers.index')->with( 'success', __('translations.manufacturers.toasts.success.restore', [
+            'name' => $manufacturer->name
+        ]));
+
+    }
+
 }

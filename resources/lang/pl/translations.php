@@ -9,6 +9,8 @@ return [
         'cancel' => 'Anuluj',
         'store' => 'Dodaj',
         'update' => 'Aktualizuj',
+        'yes' => 'Tak',
+        'no' => 'Nie',
     ],
 
     'labels' => [
@@ -46,7 +48,11 @@ return [
         'labels' => [
             'create' => 'Dodanie nowego producenta',
             'edit' => 'Edycja producenta',
-            'delete' => 'Usunięciei producenta',
+            'delete' => 'Usunięcie producenta',
+            'destroy' => 'Usunięcie producenta',
+            'destroy-question' => 'Czy na pewno usunąć producenta :name?',
+            'restore' => 'Przywrócenie producenta',
+            'restore-question' => 'Czy na pewno przywrócić producenta :name?',
         ],
 
         'attribute' => [
@@ -59,6 +65,8 @@ return [
                 'stored' => 'Dodano producenta :name',
                 'updated' => 'Zaktualizowano producenta :name',
                 'nothing-changed' => 'Dane producenta :name nie zmieniły się',
+                'destroy' => 'Producent :name został usunięty',
+                'restore' => 'Producent :name został przywrócony'
             ]
         ],
     ],

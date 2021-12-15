@@ -51,6 +51,11 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
         // odpowiedzialny za przesylanie zedytowanego formularza do bazy
         Route::patch('{manufacturer}/edit', [ManufacturerController::class, 'update'])->where('manufacturer', '[0-9]+')->name('update')->middleware(['permission:manufacturers.store']);
+
+        //usuwanie
+        Route::delete('{manufacturer}', [ManufacturerController::class, 'destroy'])->where('manufacturer', '[0-9]+')->name('destroy')->middleware(['permission:manufacturers.destroy']);
+
+        Route::put('{id}/restore', [ManufacturerController::class, 'restore'])->where('id', '[0-9]+')->name('restore')->middleware(['permission:manufacturers.destroy']);
     });
 
     // routing dla modeli
