@@ -12,6 +12,15 @@ h1 {
     padding: 2em 0 1em 0;
 }
 
+.btn-group > form > .btn:not(:first-child), .btn-group > .btn-group:not(:first-child) > form > .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.btn-group > form > .btn:not(:first-child), .btn-group > .btn-group:not(:first-child) {
+    margin-left: -1px;
+}
+
 .btn-toggle {
     display: block;
     width: 100%;

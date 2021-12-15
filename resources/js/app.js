@@ -3,6 +3,9 @@
 // wyeksportowanie globalnie biblioteki jQuery
 window.$ = window.jQuery = require('jquery');
 window.bootstrap = require('bootstrap');
+window._=require('lodash');
+require('./vendor/jsvalidation/js/jsvalidation');
+window.Swal=require('sweetalert2');
 
 // dolozenie bootstrapa i zestawu ikon bootstrapa
 // require('bootstrap');
@@ -34,4 +37,4 @@ const tooltipFunction = ( object ) => {
 toastFunction();
 tooltipFunction( document );
 
-require('./vendor/jsvalidation/js/jsvalidation');
+
