@@ -15,11 +15,25 @@
         <div class="card">
             <div class="card-body">
 
-                <h5 class="card-title"> {{ __('translations.inventory.labels.create') }} </h5>
+                <h5 class="card-title"> 
+
+                    {{ (isset( $item )) ? __('translations.inventory.labels.edit') : __('translations.inventory.labels.create') }}
+                </h5>
                 
 
-                <form action="{{ route('inventory.store') }}" id="item-form" method="POST">
+                <form id="item-form" method="POST"
+                    @if( isset( $isEdit ) && $isEdit == true )
+                        action="{{ route('inventory.update', $item) }}"
+                    @else
+                        action="{{ route('inventory.store') }}"
+                    @endif
+
+                >
                     @csrf
+
+                    @if( isset( $isEdit ) && $isEdit == true )
+                        @method('PATCH')
+                    @endif
                     
                     <div class="row mb-3 ">
                         <label for="item" class="col-sm-2 col-form-label">{{ __('translations.inventory.attribute.item') }}:</label>
@@ -122,7 +136,14 @@
                     <div class="d-flex justify-content-end mb-3">
                         <div class="btn-group" role="group" aria-label="Cancel or submit form">
                             <a href="{{ route('inventory.index') }}" type="submit" class="btn btn-secondary"> {{ __('translations.buttons.cancel') }} </a>
-                            <button type="submit" class="btn btn-primary"> {{ __('translations.buttons.store') }} </button>
+                            
+                            <button type="submit" class="btn btn-primary"> 
+                                @if( isset($item) )
+                                    {{ __('translations.buttons.update') }} 
+                                @else
+                                    {{ __('translations.buttons.store') }} 
+                                @endif
+                            </button>
                         </div>
                     </div>
                 </form>

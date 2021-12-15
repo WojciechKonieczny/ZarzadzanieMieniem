@@ -84,15 +84,15 @@ class InventoryController extends Controller
     // wysylajace dane do bazy
     public function update(InventoryRequest $request, Item $item) {
 
-        // dodaję do tabeli pivot 
         $item->users()->attach( $request->user_id, [ 
             'serial_number' => $request->serial_number, 
             'purcharse_date' => $request->purcharse_date,
             'warranty_end' => $request->warranty_end,
             'assignment_date' => $request->assignment_date
         ]);
+        
 
-        return redirect()->route('items.index')->with(
+        return redirect()->route('inventory.index')->with(
             'success', 
             // sprawdzamy, czy zostaly zmienione jakies dane, by wysswietlic prawdilowy komunikat
             __( $item->wasChanged()? 'translations.items.toasts.success.updated' : 'translations.items.toasts.success.nothing-changed', [ 
