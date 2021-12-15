@@ -1,3 +1,4 @@
-import { datatablesFunction } from "./global";
+import { datatablesFunction, sweetAlertFunction } from "./global";
 
 datatablesFunction(config.local);
+sweetAlertFunction();

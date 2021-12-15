@@ -67,4 +67,22 @@ class CategoryController extends Controller
         );
     }
 
+    public function destroy(Category $category) {
+        $category->delete();
+
+        return redirect()->route('categories.index')->with( 'success', __('translations.categories.toasts.success.destroy', [
+            'name' => $category->name
+        ]));
+    }
+
+    public function restore(int $id) {
+        $category = Category::onlyTrashed()->findOrFail($id);
+        $category->restore();
+
+        return redirect()->route('categories.index')->with( 'success', __('translations.categories.toasts.success.restore', [
+            'name' => $category->name
+        ]));
+
+    }
+
 }
