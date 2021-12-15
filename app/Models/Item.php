@@ -56,7 +56,7 @@ class Item extends Model
 
         // jesli atrybut jest instancja modelu, czyli ktos wrzucil caly model
         if( $manufacturer instanceof Manufacturer ) {
-            return $this->manufacturer->contains('id', $manufacturer->id);
+            return $this->manufacturer->contains('id', $manufacturer);
         }
 
         // jesli ktos wrzuci jeszcze inny typ danych

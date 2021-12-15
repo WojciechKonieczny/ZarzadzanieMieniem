@@ -6,6 +6,16 @@
 
     <x-slot name="scripts">
         <script src="{{ asset('js/items.js') }}"></script>
+
+        @if( isset($isEdit) )
+            {!!
+                JsValidator::formRequest('App\Http\Requests\Items\ItemUpdateRequest')
+            !!}
+        @else
+            {!!
+                JsValidator::formRequest('App\Http\Requests\Items\ItemRequest')
+            !!}
+        @endif
     </x-slot>
 
     <div class="container">
@@ -15,11 +25,23 @@
         <div class="card">
             <div class="card-body">
 
-                <h5 class="card-title"> {{ __('translations.items.labels.create') }} </h5>
+                <h5 class="card-title"> 
+                    {{ (isset( $item )) ? __('translations.items.labels.edit') : __('translations.items.labels.create') }}
+                </h5>
                 
 
-                <form action="{{ route('items.store') }}" id="item-form" method="POST">
+                <form id="item-form" method="POST"
+                    @if( isset( $isEdit ) && $isEdit == true )
+                        action="{{ route('items.update', $item) }}"
+                    @else
+                        action="{{ route('items.store') }}"
+                    @endif
+                >
                     @csrf
+
+                    @if( isset( $isEdit ) && $isEdit == true )
+                        @method('PATCH')
+                    @endif
 
                     <div class="row mb-3 ">
                         <label for="manufacturer" class="col-sm-2 col-form-label">{{ __('translations.items.attribute.manufacturer') }}</label>
@@ -32,10 +54,10 @@
                                     
                                     @foreach ($manufacturers as $manufacturer)
                                         <option value="{{ $manufacturer->id }}"
-                                            @if( isset($item) && $item-hasManufacturer($manufacturer) )
+                                            @if( isset($item) && ($item->manufacturer_id == $manufacturer->id) )
                                                 selected
-                                            @elseif( old('manufacturer_id') && old('manufacturer_id') == $manufacturer->id ) 
-                                                selected
+                                            @elseif( old('manufacturer_id') && old('manufacturer_id') == $manufacturer->id )
+                                                selected 
                                             @endif   
                                         >{{ $manufacturer->name }}</option>
                                     @endforeach
@@ -57,11 +79,13 @@
                                     
                                     @foreach ($modelornames as $model_or_name)
                                         <option value="{{ $model_or_name->id }}"
-                                            @if( isset($item) && $item-hasModelOrName($model_or_name) )
+
+                                            @if( isset($item) && ($item->model_or_name_id == $model_or_name->id) )
                                                 selected
                                             @elseif( old('model_or_name_id') && old('model_or_name_id') == $model_or_name->id ) 
-                                                selected
+                                                selected 
                                             @endif   
+
                                         >{{ $model_or_name->name }}</option>
                                     @endforeach
                             </select>
@@ -82,10 +106,11 @@
                                     
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}"
-                                            @if( isset($item) && $item-hasCategory($category) )
+
+                                            @if( isset($item) && ($item->category_id == $category->id) )
                                                 selected
-                                            @elseif( old('category_id') && old('category_id') == $category->id ) 
-                                                selected
+                                            @elseif( old('category_id') && old('category_id') == $category->id )
+                                                selected 
                                             @endif   
                                         >{{ $category->name }}</option>
                                     @endforeach
@@ -100,7 +125,14 @@
                     <div class="d-flex justify-content-end mb-3">
                         <div class="btn-group" role="group" aria-label="Cancel or submit form">
                             <a href="{{ route('items.index') }}" type="submit" class="btn btn-secondary"> {{ __('translations.buttons.cancel') }} </a>
-                            <button type="submit" class="btn btn-primary"> {{ __('translations.buttons.store') }} </button>
+
+                            <button type="submit" class="btn btn-primary"> 
+                                @if( isset($item) )
+                                    {{ __('translations.buttons.update') }} 
+                                @else
+                                    {{ __('translations.buttons.store') }} 
+                                @endif
+                            </button>
                         </div>
                     </div>
                 </form>

@@ -96,6 +96,12 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
         // odpowiedzialny za dodawanie nowych wierszy do bazy
         Route::post('', [ItemController::class, 'store'])->name('store')->middleware(['permission:items.store']);
+
+         // odpowiedzialny za wyswietlanie formularza od edycji
+         Route::get('{item}/edit', [ItemController::class, 'edit'])->where('item', '[0-9]+')->name('edit')->middleware(['permission:items.store']);
+
+         // odpowiedzialny za przesylanie zedytowanego formularza do bazy
+         Route::patch('{item}/edit', [ItemController::class, 'update'])->where('item', '[0-9]+')->name('update')->middleware(['permission:items.store']);
     });
 
     // routing dla mienia

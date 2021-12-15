@@ -9,6 +9,7 @@ use App\Models\Manufacturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Items\ItemRequest;
+use App\Http\Requests\Items\ItemUpdateRequest;
 
 class ItemController extends Controller
 {
@@ -51,5 +52,37 @@ class ItemController extends Controller
             'category' => $item->category->name
         ]));
 
+    }
+
+     // wyswietlajaca formularz
+     public function edit(Request $request, Item $item) {
+        $isEdit = true;
+
+        $manufacturers = Manufacturer::orderBy('name')->get();
+        $modelornames = ModelOrName::orderBy('name')->get();
+        $categories = Category::orderBy('name')->get();
+
+        return view(
+            'items.create', 
+            compact( 'isEdit', 'item', 'manufacturers', 'modelornames', 'categories' )
+        );
+    }
+
+    // wysylajace dane do bazy
+    public function update(ItemUpdateRequest $request, Item $item) {
+
+        $item->fill(
+            $request->all()
+        )->save();
+
+        return redirect()->route('items.index')->with(
+            'success', 
+            // sprawdzamy, czy zostaly zmienione jakies dane, by wysswietlic prawdilowy komunikat
+            __( $item->wasChanged()? 'translations.items.toasts.success.updated' : 'translations.items.toasts.success.nothing-changed', [ 
+                'manufacturer' => $item->manufacturer->name,
+                'model_or_name' => $item->modelorname->name,
+                'category' => $item->category->name
+            ])
+        );
     }
 }
