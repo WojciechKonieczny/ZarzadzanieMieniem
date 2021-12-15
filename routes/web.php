@@ -99,7 +99,7 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
         Route::patch('{category}/edit', [CategoryController::class, 'update'])->where('category', '[0-9]+')->name('update')->middleware(['permission:categories.store']);
 
          //usuwanie
-         Route::delete('{category}', [CategoryController::class, 'destroy'])->where('categort', '[0-9]+')->name('destroy')->middleware(['permission:categories.destroy']);
+         Route::delete('{category}', [CategoryController::class, 'destroy'])->where('category', '[0-9]+')->name('destroy')->middleware(['permission:categories.destroy']);
 
          // przywracanie
          Route::put('{id}/restore', [CategoryController::class, 'restore'])->where('id', '[0-9]+')->name('restore')->middleware(['permission:categories.destroy']);
@@ -120,6 +120,12 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
          // odpowiedzialny za przesylanie zedytowanego formularza do bazy
          Route::patch('{item}/edit', [ItemController::class, 'update'])->where('item', '[0-9]+')->name('update')->middleware(['permission:items.store']);
+
+         //usuwanie
+         Route::delete('{item}', [ItemController::class, 'destroy'])->where('item', '[0-9]+')->name('destroy')->middleware(['permission:items.destroy']);
+
+         // przywracanie
+         Route::put('{id}/restore', [ItemController::class, 'restore'])->where('id', '[0-9]+')->name('restore')->middleware(['permission:items.destroy']);
     });
 
     // routing dla mienia

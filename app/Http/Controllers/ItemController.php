@@ -19,7 +19,7 @@ class ItemController extends Controller
         return view(
             'items.index', // nazwa szablony
             [
-                'items' => Item::with('manufacturer', 'modelorname', 'category')->withCount('users')->get()
+                'items' => Item::with('manufacturer', 'modelorname', 'category')->withTrashed()->withCount('users')->get()
             ]
         );
     }
@@ -84,5 +84,27 @@ class ItemController extends Controller
                 'category' => $item->category->name
             ])
         );
+    }
+
+    public function destroy(Item $item) {
+        $item->delete();
+
+        return redirect()->route('items.index')->with( 'success', __('translations.items.toasts.success.destroy', [
+            'manufacturer' => $item->manufacturer->name,
+            'model_or_name' => $item->modelorname->name,
+            'category' => $item->category->name
+        ]));
+    }
+
+    public function restore(int $id) {
+        $item = Item::onlyTrashed()->findOrFail($id);
+        $item->restore();
+
+        return redirect()->route('items.index')->with( 'success', __('translations.items.toasts.success.restore', [
+            'manufacturer' => $item->manufacturer->name,
+            'model_or_name' => $item->modelorname->name,
+            'category' => $item->category->name
+        ]));
+
     }
 }
