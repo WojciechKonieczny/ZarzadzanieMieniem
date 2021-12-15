@@ -85,5 +85,4 @@ class ManufacturerController extends Controller
         ]));
 
     }
-
 }

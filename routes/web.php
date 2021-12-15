@@ -55,6 +55,7 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
         //usuwanie
         Route::delete('{manufacturer}', [ManufacturerController::class, 'destroy'])->where('manufacturer', '[0-9]+')->name('destroy')->middleware(['permission:manufacturers.destroy']);
 
+        // przywracanie
         Route::put('{id}/restore', [ManufacturerController::class, 'restore'])->where('id', '[0-9]+')->name('restore')->middleware(['permission:manufacturers.destroy']);
     });
 
@@ -69,10 +70,16 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
         Route::post('', [ModelOrNameController::class, 'store'])->name('store')->middleware(['permission:models.store']);
 
         // odpowiedzialny za wyswietlanie formularza od edycji
-        Route::get('{model_or_name}/edit', [ModelOrNameController::class, 'edit'])->where('model', '[0-9]+')->name('edit')->middleware(['permission:models.store']);
+        Route::get('{model_or_name}/edit', [ModelOrNameController::class, 'edit'])->where('model_or_name', '[0-9]+')->name('edit')->middleware(['permission:models.store']);
 
         // odpowiedzialny za przesylanie zedytowanego formularza do bazy
-        Route::patch('{model_or_name}/edit', [ModelOrNameController::class, 'update'])->where('model', '[0-9]+')->name('update')->middleware(['permission:models.store']);
+        Route::patch('{model_or_name}/edit', [ModelOrNameController::class, 'update'])->where('model_or_name', '[0-9]+')->name('update')->middleware(['permission:models.store']);
+
+         //usuwanie
+         Route::delete('{model_or_name}', [ModelOrNameController::class, 'destroy'])->where('model_or_name', '[0-9]+')->name('destroy')->middleware(['permission:models.destroy']);
+
+         // przywracanie
+         Route::put('{id}/restore', [ModelOrNameController::class, 'restore'])->where('id', '[0-9]+')->name('restore')->middleware(['permission:models.destroy']);
     });
 
      // routing dla kategorii

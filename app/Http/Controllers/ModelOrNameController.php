@@ -67,4 +67,22 @@ class ModelOrNameController extends Controller
         );
     }
 
+    public function destroy(ModelOrName $model_or_name) {
+        $model_or_name->delete();
+
+        return redirect()->route('models.index')->with( 'success', __('translations.models_or_names.toasts.success.destroy', [
+            'name' => $model_or_name->name
+        ]));
+    }
+
+    public function restore(int $id) {
+        $model_or_name = ModelOrName::onlyTrashed()->findOrFail($id);
+        $model_or_name->restore();
+
+        return redirect()->route('models.index')->with( 'success', __('translations.models_or_names.toasts.success.restore', [
+            'name' => $model_or_name->name
+        ]));
+
+    }
+
 }
