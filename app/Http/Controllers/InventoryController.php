@@ -63,4 +63,42 @@ class InventoryController extends Controller
         ]));
 
     }
+
+     // wyswietlajaca formularz
+     public function edit(Request $request, Item $item) {
+        $isEdit = true;
+
+        $items = Item::orderBy('category_id')->with('manufacturer', 'modelorname', 'category', 'users')->get();
+        $users = User::orderBy('name')->with('items')->get();
+
+        $helprow = DB::table('item_user')->where('id', $item->id)->select('user_id')->get();
+
+        // dd($helprow);
+
+        return view(
+            'inventory.create', 
+            compact( 'isEdit', 'item', 'items', 'users', 'helprow')
+        );
+    }
+
+    // wysylajace dane do bazy
+    public function update(InventoryRequest $request, Item $item) {
+
+        // dodaję do tabeli pivot 
+        $item->users()->attach( $request->user_id, [ 
+            'serial_number' => $request->serial_number, 
+            'purcharse_date' => $request->purcharse_date,
+            'warranty_end' => $request->warranty_end,
+            'assignment_date' => $request->assignment_date
+        ]);
+
+        return redirect()->route('items.index')->with(
+            'success', 
+            // sprawdzamy, czy zostaly zmienione jakies dane, by wysswietlic prawdilowy komunikat
+            __( $item->wasChanged()? 'translations.items.toasts.success.updated' : 'translations.items.toasts.success.nothing-changed', [ 
+                'manufacturer' => $item->manufacturer->name,
+                'model_or_name' => $item->modelorname->name,
+            ])
+        );
+    }
 }

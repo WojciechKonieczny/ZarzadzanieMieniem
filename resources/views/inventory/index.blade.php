@@ -38,6 +38,7 @@
                         <th>{{ __('translations.inventory.attribute.warranty_end') }}</th>
                         <th>{{ __('translations.inventory.attribute.user') }}</th>
                         <th>{{ __('translations.inventory.attribute.assignment_date') }}</th>
+                        <th class="always-visible"></th>
                     </tr>
                 </thead>
 
@@ -55,6 +56,17 @@
                                 <td> {{ $it->pivot->warranty_end }} </td>
                                 <td> {{ $it->email }} </td>
                                 <td> {{ $it->pivot->assignment_date }} </td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="action buttons">
+                                        @can('users.store')
+                                            <x-datatables.action-link class="btn btn-primary"
+                                                url="{{ route('inventory.edit', $it->pivot->id) }}" {{-- atrybut url przekazywany do komponentu --}}
+                                                title="{{ __('translations.inventory.labels.edit') }}">
+                                                <i class="bi-pencil"></i>
+                                            </x-action-link>
+                                        @endcan
+                                    </div>
+                                </td>
                             @endhasrole
                         
                             {{-- uzytkownik widzi tylko mienie, przypisane do niego --}}

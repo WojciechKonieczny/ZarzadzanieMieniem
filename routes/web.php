@@ -113,6 +113,12 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
         // odpowiedzialny za dodawanie nowych wierszy do bazy
         Route::post('', [InventoryController::class, 'store'])->name('store')->middleware(['permission:itemsUsers.store']);
+
+        // odpowiedzialny za wyswietlanie formularza od edycji
+        Route::get('{item}/edit', [InventoryController::class, 'edit'])->where('inventory', '[0-9]+')->name('edit')->middleware(['permission:itemsUsers.store']);
+
+        // odpowiedzialny za przesylanie zedytowanego formularza do bazy
+        Route::patch('{item}/edit', [InventoryController::class, 'update'])->where('inventory', '[0-9]+')->name('update')->middleware(['permission:itemsUsers.store']);
     });
 
     // routing dla użytkowników

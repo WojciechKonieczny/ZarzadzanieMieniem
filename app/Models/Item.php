@@ -88,17 +88,17 @@ class Item extends Model
 
         // jesli jest stringiem, to ktos szuka po nazwie
         if( is_string($user) ) {
-            return $this->user->contains('name', $user);
+            return $this->users->contains('name', $user);
         }
 
         // jesli jest int, to ktos szuka po id kateogrii
         if( is_int($user) ) {
-            return $this->user->contains('id', $user);
+            return $this->users->contains('id', $user);
         }
 
         // jesli atrybut jest instancja modelu, czyli ktos wrzucil caly model
         if( $user instanceof User ) {
-            return $this->user->contains('id', $user->id);
+            return $this->users->contains('id', $user->id);
         }
 
         // jesli ktos wrzuci jeszcze inny typ danych
