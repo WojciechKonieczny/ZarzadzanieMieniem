@@ -87,7 +87,12 @@ class ItemController extends Controller
     }
 
     public function destroy(Item $item) {
+        //usuniecie przedmiotu, powoduje usuniecie rekordow, ktorze dotyczyly tego przedmiotu w tabeli 'item_user"
+        $item->users()->detach();
         $item->delete();
+
+        // usuniecie przedmiotu, powoduje softDelete rekordow, ktore dotyczyly tego przedmiotu w tabeli 'item_user':
+        // $item->delete();
 
         return redirect()->route('items.index')->with( 'success', __('translations.items.toasts.success.destroy', [
             'manufacturer' => $item->manufacturer->name,
