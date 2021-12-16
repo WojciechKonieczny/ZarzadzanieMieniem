@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Item;
 use App\Models\User;
 use App\Models\Category;
@@ -93,12 +94,29 @@ class InventoryController extends Controller
         
 
         return redirect()->route('inventory.index')->with(
-            'success', 
+            'success',
             // sprawdzamy, czy zostaly zmienione jakies dane, by wysswietlic prawdilowy komunikat
             __( $item->wasChanged()? 'translations.items.toasts.success.updated' : 'translations.items.toasts.success.nothing-changed', [ 
                 'manufacturer' => $item->manufacturer->name,
                 'model_or_name' => $item->modelorname->name,
             ])
         );
+    }
+
+    public function destroy($id) {
+
+        // pobieram tylko jeden wiersz (ten ktory chce usunac) z tabeli 'item_user' - przydadza mi sie dane typu item_id
+        $inventory = DB::table('item_user')->where('id', $id)->first();
+
+        $item = Item::find($inventory->item_id);
+
+        // kasuje z tabeli tylko dany rekord
+        $item->users()->where('item_user.id','=', $id)->delete();
+
+        return redirect()->route('inventory.index')->with( 'success', __('translations.inventory.toasts.success.destroy', [
+            'manufacturer' => $item->manufacturer->name,
+            'model_or_name' => $item->modelorname->name,
+            'serial_number' => $inventory->serial_number
+        ]));
     }
 }

@@ -143,6 +143,12 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
         // odpowiedzialny za przesylanie zedytowanego formularza do bazy
         Route::patch('{item}/edit', [InventoryController::class, 'update'])->where('inventory', '[0-9]+')->name('update')->middleware(['permission:itemsUsers.store']);
+
+        //usuwanie
+        Route::delete('{id}', [InventoryController::class, 'destroy'])->where('id', '[0-9]+')->name('destroy')->middleware(['permission:itemsUsers.destroy']);
+
+        // przywracanie
+        Route::put('{id}/restore', [InventoryController::class, 'restore'])->where('item', '[0-9]+')->name('restore')->middleware(['permission:itemsUsers.destroy']);
     });
 
     // routing dla użytkowników

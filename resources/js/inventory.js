@@ -1,16 +1,4 @@
-require('datatables.net-bs5');
+import { datatablesFunction, sweetAlertFunction } from "./global";
 
-const datatablesFunction = (language) => {
-
-    $( () => {
-        $('table').DataTable({
-            "language": {
-                "url": "/vendor/datatables/i18n/" + language + ".json"
-            },
-            destroy: true,
-            // "bDestroy": true,
-        });
-    });
-};
-
-export { datatablesFunction };
+datatablesFunction(config.local);
+sweetAlertFunction();

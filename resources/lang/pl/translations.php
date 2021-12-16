@@ -200,9 +200,9 @@ return [
             'edit' => 'Edycja mienia',
             'delete' => 'Usunięcie mienia',
             'destroy' => 'Usunięcie mienia',
-            'destroy-question' => 'Czy na pewno usunąć mienie :manufacturer :model_or_name?',
+            'destroy-question' => 'Czy na pewno usunąć mienie :manufacturer :model_or_name (ID: :serial_number)?',
             'restore' => 'Przywrócenie mienia',
-            'restore-question' => 'Czy na pewno przywrócić menie :manufacturer :model_or_name?',
+            'restore-question' => 'Czy na pewno przywrócić menie :manufacturer :model_or_name (ID: :serial_number)?',
         ],
 
         'titleForUsers' => 'Twoje mienie',
@@ -224,7 +224,7 @@ return [
                 'stored' => 'Przypisano przedmiot: :manufacturer :model_or_name do użytkownika: :user',
                 'updated' => 'Zaktualizowano mienie :manufacturer :model_or_name o numerze :serial_number',
                 'nothing-changed' => 'Dane mienia :manufacturer :model_or_name o numerze :serial_number nie zmieniły się',
-                'destroy' => 'Mienie :manufacturer :model_or_name zostało usunięte',
+                'destroy' => 'Mienie :manufacturer :model_or_name (ID: :serial_number) zostało usunięte',
                 'restore' => 'Mienie :manufacturer :model_or_name zostało przywrócone',
             ]
         ],

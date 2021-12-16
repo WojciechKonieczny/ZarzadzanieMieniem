@@ -138,7 +138,7 @@
                             <a href="{{ route('inventory.index') }}" type="submit" class="btn btn-secondary"> {{ __('translations.buttons.cancel') }} </a>
                             
                             <button type="submit" class="btn btn-primary"> 
-                                @if( isset($item) )
+                                @if( isset($isEdit) && $isEdit == true )
                                     {{ __('translations.buttons.update') }} 
                                 @else
                                     {{ __('translations.buttons.store') }} 
