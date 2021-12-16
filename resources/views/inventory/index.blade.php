@@ -50,9 +50,9 @@
                                 @hasrole('admin')
                                 <tr>
                                     <td> {{ $it->pivot->id }} </td>
-                                    <td> {{ $item->manufacturer->name}} </td>
-                                    <td> {{ $item->modelorname->name }} </td>
-                                    <td> {{ $item->category->name }} </td>
+                                    <td> {{ $item->manufacturer? $item->manufacturer->name : '' }} </td>
+                                    <td> {{ $item->modelorname? $item->modelorname->name : '' }} </td>
+                                    <td> {{ $item->category? $item->category->name  : '' }} </td>
                                     <td> {{ $it->pivot->serial_number }} </td>
                                     <td> {{ $it->pivot->purcharse_date }} </td>
                                     <td> {{ $it->pivot->warranty_end }} </td>
