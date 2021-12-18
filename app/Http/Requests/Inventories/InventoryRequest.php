@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Inventories;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InventoryRequest extends FormRequest
@@ -23,13 +24,20 @@ class InventoryRequest extends FormRequest
      */
     public function rules()
     {
+        // dd($this->item->users);
         return [
             'item_id' => ['required', 'integer', 'exists:items,id'],
             'user_id' => ['required', 'integer', 'exists:users,id'],
             'serial_number' => ['string', 'min:5', 'max:12', 'unique:item_user', 'nullable', 'regex:/^[A-Z0-9]{5,}$/'],
-            'purcharse_date' => ['date', 'nullable', 'before_or_equal:now', 'before:assignment_date'],
-            'warranty_end' => ['date', 'nullable', 'after_or_equal:purcharse_date'],
-            'assignment_date' => ['date', 'nullable', 'before_or_equal:now']
+            'purcharse_date' => ['date', 'nullable',
+                //'before_or_equal:now', 'before:assignment_date'
+            ],
+            'warranty_end' => ['date', 'nullable', 
+                //'after_or_equal:purcharse_date'
+            ],
+            'assignment_date' => ['date', 'nullable', 
+                //'before_or_equal:now'
+            ]
         ];
     }
 

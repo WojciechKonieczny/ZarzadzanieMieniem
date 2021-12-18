@@ -69,38 +69,52 @@ class InventoryController extends Controller
      public function edit(Request $request, Item $item) {
         $isEdit = true;
 
+        // pobieram tylko jeden wiersz (ten ktory chce usunac) z tabeli 'item_user' - przydadza mi sie dane typu item_id
+        $inventory = DB::table('item_user')->where('id', $item->id)->first();
+        $inventoryId = $item->id;
+        
         $items = Item::orderBy('category_id')->with('manufacturer', 'modelorname', 'category', 'users')->get();
         $users = User::orderBy('name')->with('items')->get();
 
-        $helprow = DB::table('item_user')->where('id', $item->id)->select('user_id')->get();
-
-        // dd($helprow);
+        // pobieram stare wartosci, by
+        $item = Item::find($inventory->item_id);
+        $oldUser = User::find($inventory->user_id);
+        $oldSerial = $inventory->serial_number;
+        $oldPurcharse = $inventory->purcharse_date;
+        $oldWarranty = $inventory->warranty_end;
+        $oldAssignment = $inventory->assignment_date;
 
         return view(
             'inventory.create', 
-            compact( 'isEdit', 'item', 'items', 'users', 'helprow')
+            compact( 'isEdit', 'items', 'users', 'item', 'oldUser', 'oldSerial', 'oldPurcharse', 'oldWarranty', 'oldAssignment', 'inventoryId')
         );
     }
 
     // wysylajace dane do bazy
-    public function update(InventoryRequest $request, Item $item) {
+    public function update(InventoryRequest $request, $id) {
 
-        $item->users()->attach( $request->user_id, [ 
+        // pobieram tylko jeden wiersz (ten ktory chce edytowac) z tabeli 'item_user' - przydadza mi sie dane typu item_id
+        $inventory = DB::table('item_user')->where('id', '=', $id)->first();
+
+        DB::table('item_user')->where('id', $id)->update([
+            'user_id' => $request->user_id,
+            'item_id' => $request->item_id,
             'serial_number' => $request->serial_number, 
             'purcharse_date' => $request->purcharse_date,
             'warranty_end' => $request->warranty_end,
             'assignment_date' => $request->assignment_date
         ]);
-        
 
-        return redirect()->route('inventory.index')->with(
-            'success',
-            // sprawdzamy, czy zostaly zmienione jakies dane, by wysswietlic prawdilowy komunikat
-            __( $item->wasChanged()? 'translations.items.toasts.success.updated' : 'translations.items.toasts.success.nothing-changed', [ 
-                'manufacturer' => $item->manufacturer->name,
-                'model_or_name' => $item->modelorname->name,
-            ])
-        );
+        // $item->users()->save( $request->user_id, [ 
+        //     'serial_number' => $request->serial_number, 
+        //     'purcharse_date' => $request->purcharse_date,
+        //     'warranty_end' => $request->warranty_end,
+        //     'assignment_date' => $request->assignment_date
+        // ]);
+
+        return redirect()->route('inventory.index')->with( 'success', __('translations.inventory.toasts.success.updated', [
+            'serial_number' => 'test'
+        ]));
     }
 
     public function destroy($id) {

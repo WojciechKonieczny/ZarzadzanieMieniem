@@ -222,7 +222,7 @@ return [
         'toasts' => [
             'success' => [
                 'stored' => 'Przypisano przedmiot: :manufacturer :model_or_name do użytkownika: :user',
-                'updated' => 'Zaktualizowano mienie :manufacturer :model_or_name o numerze :serial_number',
+                'updated' => 'Zaktualizowano mienie o identyfikatorze :serial_number',
                 'nothing-changed' => 'Dane mienia :manufacturer :model_or_name o numerze :serial_number nie zmieniły się',
                 'destroy' => 'Mienie :manufacturer :model_or_name (ID: :serial_number) zostało usunięte',
                 'restore' => 'Mienie :manufacturer :model_or_name zostało przywrócone',

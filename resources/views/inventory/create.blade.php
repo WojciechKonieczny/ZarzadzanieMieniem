@@ -6,6 +6,9 @@
 
     <x-slot name="scripts">
         <script src="{{ asset('js/inventory.js') }}"></script>
+        {!!
+            JsValidator::formRequest('App\Http\Requests\Inventories\InventoryRequest')
+        !!}
     </x-slot>
 
     <div class="container">
@@ -17,13 +20,13 @@
 
                 <h5 class="card-title"> 
 
-                    {{ (isset( $item )) ? __('translations.inventory.labels.edit') : __('translations.inventory.labels.create') }}
+                    {{ ( isset($isEdit) && $isEdit == true ) ? __('translations.inventory.labels.edit') : __('translations.inventory.labels.create') }}
                 </h5>
                 
 
                 <form id="item-form" method="POST"
                     @if( isset( $isEdit ) && $isEdit == true )
-                        action="{{ route('inventory.update', $item) }}"
+                        action="{{ route('inventory.update', $inventoryId) }}"
                     @else
                         action="{{ route('inventory.store') }}"
                     @endif
@@ -44,14 +47,14 @@
 
                                     <option></option>
                                     
-                                    @foreach ($items as $item)
-                                        <option value="{{ $item->id }}"
-                                            @if( isset($item) && $item->hasManufacturer($item) )
+                                    @foreach ($items as $it)
+                                        <option value="{{ $it->id }}"
+                                            @if( isset($isEdit) && $isEdit == true && $it->id == $item->id )
                                                 selected
-                                            @elseif( old('item_id') && old('item_id') == $item->id ) 
+                                            @elseif( old('item_id') && old('item_id') == $it->id ) 
                                                 selected
                                             @endif   
-                                        >{{ $item->manufacturer->name . ' ' . $item->modelorname->name }}</option>
+                                        >{{ $it->manufacturer->name . ' ' . $it->modelorname->name }}</option>
                                     @endforeach
                             </select>
                             @error('item_id')
@@ -71,7 +74,9 @@
                                     
                                     @foreach ($users as $user)
                                         <option value="{{ $user->id }}"
-                                            @if( old('user_id') && old('user_id') == $user->id ) 
+                                            @if( isset($isEdit) && $isEdit == true && $user->id == $oldUser->id)
+                                                selected
+                                            @elseif( old('user_id') && old('user_id') == $user->id ) 
                                                 selected
                                             @endif   
                                         >{{ $user->name . ' (' . $user->email . ')' }}</option>
@@ -87,8 +92,13 @@
 
                         <label for="serial_number" class="col-sm-2 col-form-label">{{ __('translations.inventory.attribute.serial_number') }}:</label>
                         <div class="col-sm-10">
-                            <input type="text" name="serial_number" class="form-control @error('serial_number') is-invalid @enderror" id="serial_number" value="{{ old('serial_number') }}"
+                            <input type="text" name="serial_number" class="form-control @error('serial_number') is-invalid @enderror" id="serial_number"
                                 placeholder="{{ __('translations.labels.select2.other.placeholders.serialnumber') }}"
+                                @if( isset($isEdit) && $isEdit == true )
+                                    value="{{ $oldSerial }}"
+                                @elseif( old('serial_number') )
+                                    value="{{ old('serial_number') }}"
+                                @endif
                             >
                             @error('serial_number')
                                 <span class="invalid-feedback" role="alert"> {{ $message }} </span>
@@ -101,7 +111,15 @@
                     <div class="row mb-3">
                         <label for="purcharse_date" class="col-sm-2 col-form-label">{{ __('translations.inventory.attribute.purcharse_date') }}:</label>
                         <div class="col-sm-10">
-                            <input type="date" name="purcharse_date" class="form-control @error('purcharse_date') is-invalid @enderror" max="{{ now()->format('Y-m-d') }}" id="purcharse_date" value="{{ old('purcharse_date') }}">
+                            <input type="date" name="purcharse_date" class="form-control @error('purcharse_date') is-invalid @enderror" max="{{ now()->format('Y-m-d') }}" id="purcharse_date" 
+                                
+                                @if( isset($isEdit) && $isEdit == true )
+                                    value="{{ $oldPurcharse }}"
+                                @elseif( old('purcharse_date') )
+                                    value="{{ old('purcharse_date') }}"
+                                @endif
+                            >
+
                             @error('purcharse_date')
                                 <span class="invalid-feedback" role="alert"> {{ $message }} </span>
                             @enderror
@@ -111,7 +129,13 @@
                     <div class="row mb-3">
                         <label for="warranty_end" class="col-sm-2 col-form-label">{{ __('translations.inventory.attribute.warranty_end') }}:</label>
                         <div class="col-sm-10">
-                            <input type="date" name="warranty_end" class="form-control @error('warranty_end') is-invalid @enderror" id="warranty_end" value="{{ old('warranty_end') }}">
+                            <input type="date" name="warranty_end" class="form-control @error('warranty_end') is-invalid @enderror" id="warranty_end" 
+                                @if( isset($isEdit) && $isEdit == true )
+                                    value="{{ $oldWarranty }}"
+                                @elseif( old('warranty_end') )
+                                    value="{{ old('warranty_end') }}"
+                                @endif
+                            >
                             @error('warranty_end')
                                 <span class="invalid-feedback" role="alert"> {{ $message }} </span>
                             @enderror
@@ -123,7 +147,14 @@
                         <label for="assignment_date" class="col-sm-2 col-form-label">{{ __('translations.inventory.attribute.assignment_date') }}:</label>
                         <div class="col-sm-10">
                             <input type="date" name="assignment_date" class="form-control @error('assignment_date') is-invalid @enderror" max="{{ now()->format('Y-m-d') }}"
-                                id="assignment_date" value="{{ old('assignment_date', now()->format('Y-m-d')) }}"
+                                id="assignment_date" 
+
+                                @if( isset($isEdit) && $isEdit == true )
+                                    value="{{ $oldAssignment }}"
+                                @elseif( old('assignment_date') )
+                                    value="{{ old('assignment_date') }}"
+                                @endif
+                                    
                             >
                             @error('assignment_date')
                                 <span class="invalid-feedback" role="alert"> {{ $message }} </span>
