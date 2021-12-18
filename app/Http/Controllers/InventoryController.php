@@ -67,12 +67,12 @@ class InventoryController extends Controller
     }
 
      // wyswietlajaca formularz
-     public function edit(Request $request, Item $item) {
+     public function edit(Request $request, $id) {
         $isEdit = true;
 
         // pobieram tylko jeden wiersz (ten ktory chce usunac) z tabeli 'item_user' - przydadza mi sie dane typu item_id
-        $inventory = DB::table('item_user')->where('id', $item->id)->first();
-        $inventoryId = $item->id;
+        $inventory = DB::table('item_user')->where('id', $id)->first();
+        $inventoryId = $id;
         
         $items = Item::orderBy('category_id')->with('manufacturer', 'modelorname', 'category', 'users')->get();
         $users = User::orderBy('name')->with('items')->get();

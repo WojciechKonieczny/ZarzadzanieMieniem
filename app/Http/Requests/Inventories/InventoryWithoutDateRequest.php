@@ -31,7 +31,8 @@ class InventoryWithoutDateRequest extends FormRequest
         return [
             'item_id' => ['required', 'integer', 'exists:items,id'],
             'user_id' => ['required', 'integer', 'exists:users,id'],
-            'serial_number' => ['string', 'min:5', 'max:12', 'unique:item_user', 'nullable', 'regex:/^[A-Z0-9]{5,}$/']
+            'serial_number' => ['string', 'min:5', 'max:12', 'unique:item_user', 'nullable', 'regex:/^[A-Z0-9]{5,}$/'],
+            'assignment_date' => ['before_or_equal:now']
         ];
     }
 

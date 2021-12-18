@@ -139,7 +139,7 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
         Route::post('', [InventoryController::class, 'store'])->name('store')->middleware(['permission:itemsUsers.store']);
 
         // odpowiedzialny za wyswietlanie formularza od edycji
-        Route::get('{item}/edit', [InventoryController::class, 'edit'])->where('item', '[0-9]+')->name('edit')->middleware(['permission:itemsUsers.store']);
+        Route::get('{id}/edit', [InventoryController::class, 'edit'])->where('id', '[0-9]+')->name('edit')->middleware(['permission:itemsUsers.store']);
 
         // odpowiedzialny za przesylanie zedytowanego formularza do bazy
         Route::patch('{id}/edit', [InventoryController::class, 'update'])->where('id', '[0-9]+')->name('update')->middleware(['permission:itemsUsers.store']);
