@@ -11,6 +11,7 @@ use App\Models\Manufacturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Inventories\InventoryRequest;
+use App\Http\Request\Inventories\InventoryWithoutDateRequest;
 
 class InventoryController extends Controller
 {

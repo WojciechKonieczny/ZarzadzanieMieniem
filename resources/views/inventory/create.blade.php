@@ -6,8 +6,9 @@
 
     <x-slot name="scripts">
         <script src="{{ asset('js/inventory.js') }}"></script>
+        {{-- niestety, JsValidator nie radzi sobie z datami, więc w requeście po stronie klienta, nie mogę zwalidować tych danych --}}
         {!!
-            JsValidator::formRequest('App\Http\Requests\Inventories\InventoryRequest')
+            JsValidator::formRequest('App\Http\Requests\Inventories\InventoryWithoutDateRequest')
         !!}
     </x-slot>
 
