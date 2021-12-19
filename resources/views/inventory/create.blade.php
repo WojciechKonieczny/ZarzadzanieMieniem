@@ -7,9 +7,9 @@
     <x-slot name="scripts">
         <script src="{{ asset('js/inventory.js') }}"></script>
         {{-- niestety, JsValidator nie radzi sobie z datami, więc w requeście po stronie klienta, nie mogę zwalidować tych danych --}}
-        {!!
+        {{-- {!!
             JsValidator::formRequest('App\Http\Requests\Inventories\InventoryRequest')
-        !!}
+        !!} --}}
     </x-slot>
 
     <div class="container">
@@ -97,7 +97,7 @@
                                 placeholder="{{ __('translations.labels.select2.other.placeholders.serialnumber') }}"
                                 @if( isset($isEdit) && $isEdit == true )
                                     value="{{ $oldSerial }}"
-                                @elseif( old('serial_number') )
+                                @else
                                     value="{{ old('serial_number') }}"
                                 @endif
                             >

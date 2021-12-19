@@ -114,7 +114,7 @@ class InventoryController extends Controller
         // ]);
 
         return redirect()->route('inventory.index')->with( 'success', __('translations.inventory.toasts.success.updated', [
-            'serial_number' => 'test'
+            'serial_number' => $request->serial_number
         ]));
     }
 
