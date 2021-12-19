@@ -154,6 +154,8 @@
                                     value="{{ $oldAssignment }}"
                                 @elseif( old('assignment_date') )
                                     value="{{ old('assignment_date') }}"
+                                @else
+                                    value="{{ now()->format('Y-m-d') }}"
                                 @endif
                                     
                             >

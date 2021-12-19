@@ -3,9 +3,10 @@
 namespace App\Http\Requests\Inventories;
 
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Http\FormRequest;
 
-class InventoryRequest extends FormRequest
+class InventoryUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +26,17 @@ class InventoryRequest extends FormRequest
     public function rules()
     {
         //-- niestety, JsValidator nie radzi sobie z datami, więc w requeście po stronie klienta, nie mogę zwalidować tych danych
+
+        // przyda sie do unikniecia bledu "ta wartosc juz istnieje" przy edycji i niezmienianiu serial_number
+        // niestety jest to "pole dodatkowe" w tabeli pivot - nie jest ani skladnikiem obiektu User, ani Item
+        $inventory = DB::table('item_user')->where('id', '=', $this->id)->first();
+
         return [
             'item_id' => ['required', 'integer', 'exists:items,id'],
             'user_id' => ['required', 'integer', 'exists:users,id'],
-            'serial_number' => ['string', 'min:5', 'max:12', 'unique:item_user', 'nullable', 'regex:/^[A-Z0-9]{5,}$/'],
-            'purcharse_date' => ['date', 'nullable', 'before_or_equal:now', 'before_or_equal:assignment_date'],
+            'serial_number' => ['string', 'min:5', 'max:12', 'nullable', 'regex:/^[A-Z0-9]{5,}$/',
+                Rule::unique('item_user')->ignore($inventory->id)],
+            'purcharse_date' => ['date', 'nullable', 'before_or_equal:now', 'before:assignment_date'],
             'warranty_end' => ['date', 'nullable', 'after_or_equal:purcharse_date'],
             'assignment_date' => ['date', 'nullable', 'before_or_equal:now']
         ];

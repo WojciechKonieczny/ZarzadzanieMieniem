@@ -91,7 +91,7 @@ class ItemController extends Controller
         // $item->users()->detach();
         // $item->delete();
 
-        // usuniecie przedmiotu, powoduje softDelete rekordow, ktore dotyczyly tego przedmiotu w tabeli 'item_user':
+        // usuniecie przedmiotu, powoduje ukrycie rekordow, ktore dotyczyly tego przedmiotu w tabeli 'item_user':
         $item->delete();
 
         return redirect()->route('items.index')->with( 'success', __('translations.items.toasts.success.destroy', [

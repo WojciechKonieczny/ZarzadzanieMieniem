@@ -7,13 +7,7 @@
                 errorClass: 'invalid-feedback',
 
                 errorPlacement: function (error, element) {
-                    if (element.parent('.input-group').length ||
-                        element.prop('type') === 'checkbox' || element.prop('type') === 'radio') {
-                        error.insertAfter(element.parent());
-                        // else just place the validation message immediately after the input
-                    } else {
-                        error.insertAfter(element);
-                    }
+                    
                 },
                 highlight: function (element) {
                     $(element).closest('.form-control').removeClass('is-valid').addClass('is-invalid'); // add the Bootstrap error class to the control group

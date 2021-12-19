@@ -11,6 +11,7 @@ use App\Models\Manufacturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Inventories\InventoryRequest;
+use App\Http\Requests\Inventories\InventoryUpdateRequest;
 use App\Http\Request\Inventories\InventoryWithoutDateRequest;
 
 class InventoryController extends Controller
@@ -92,7 +93,7 @@ class InventoryController extends Controller
     }
 
     // wysylajace dane do bazy
-    public function update(InventoryRequest $request, $id) {
+    public function update(InventoryUpdateRequest $request, $id) {
 
         // pobieram tylko jeden wiersz (ten ktory chce edytowac) z tabeli 'item_user' - przydadza mi sie dane typu item_id
         $inventory = DB::table('item_user')->where('id', '=', $id)->first();
