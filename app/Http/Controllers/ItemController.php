@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\ModelOrName;
+use App\Exports\ItemsExport;
 use App\Models\Manufacturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\Items\ItemRequest;
 use App\Http\Requests\Items\ItemUpdateRequest;
 
@@ -111,5 +113,10 @@ class ItemController extends Controller
             'category' => $item->category->name
         ]));
 
+    }
+
+    public function export() {
+        // generujemy excela na podstawie widoku, a nie kolekcji - nie musimy się martwić o mapowanie kluczy obcych itd., gdyż możemy wykorzystać widok, używany do wylistowania przedmiotów w przeglądarce
+        return Excel::download( new ItemsExport, 'items.xlsx' );
     }
 }

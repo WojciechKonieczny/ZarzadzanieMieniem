@@ -126,6 +126,9 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
          // przywracanie
          Route::put('{id}/restore', [ItemController::class, 'restore'])->where('id', '[0-9]+')->name('restore')->middleware(['permission:items.destroy']);
+
+         // export
+         Route::get('export', [ItemController::class, 'export'])->name('export')->middleware(['permission:items.store']);
     });
 
     // routing dla mienia

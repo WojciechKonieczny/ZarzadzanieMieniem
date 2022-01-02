@@ -15,7 +15,7 @@ return [
         'update' => 'Aktualizuj',
         'yes' => 'Tak',
         'no' => 'Nie',
-        'export' => 'Eksportuj do Excela',
+        'export' => 'Eksport do Excela',
     ],
 
     'labels' => [
