@@ -175,15 +175,19 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        /*
-        * Role i uprawnienia
-        */
-        Spatie\Permission\PermissionServiceProvider::class,
 
         /*
-        * Logi aplikacji
+        * DODANE PROVIDERY
         */
+
+        // role i uprawnienia
+        Spatie\Permission\PermissionServiceProvider::class,
+
+        // logi aplikacji
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
+
+        // Laravel Excel
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ],
 
     /*
@@ -237,6 +241,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        // Laravel Excel ---> The Excel facade is also auto-discovered. If you want to add it manually, add the Facade
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
     /*
