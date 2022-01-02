@@ -53,7 +53,9 @@ class ItemRequest extends FormRequest
      // zwraca tlumaczenia atrybutow - beda one obowiazywac tylko w tej klasie!; czyli jesli w tlumaczeniach w translations/lang/pl jest :name, to bedzie zastapione tym z dolu
     public function attributes() {
         return [
-            ''
+            'manufacturer_id' => 'producent',
+            'model_or_name_id' => 'model',
+            'category_id' => 'kategoria'
         ];
     }
 }
