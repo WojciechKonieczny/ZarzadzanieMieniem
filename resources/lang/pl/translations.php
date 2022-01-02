@@ -3,6 +3,7 @@
 return [
     'menu' => [
         'log-viewer' => 'Logi',
+        'admin-panel' => 'Panel administratora',
     ],
 
     'buttons' => [

@@ -11,10 +11,19 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-              Dashboard
+        @canany(['itemsUsers.index', 'itemsUsers.index_to_me'])
+        <li class="nav-item">         
+          <x-nav-link :href="route('inventory.index')" :active="request()->routeIs('inventory.index')">
+            @hasrole('admin')
+                {{ __('translations.inventory.title') }}
+            @endhasrole
+
+            @hasrole('user')
+                {{ __('translations.inventory.titleForUsers') }}
+            @endhasrole
           </x-nav-link>
+        </li> 
+        @endcanany
         @can('manufacturers.index')
         <li class="nav-item">         
           <x-nav-link :href="route('manufacturers.index')" :active="request()->routeIs('manufacturers.index')">
@@ -43,19 +52,6 @@
           </x-nav-link>
         </li> 
         @endcan
-        @canany(['itemsUsers.index', 'itemsUsers.index_to_me'])
-        <li class="nav-item">         
-          <x-nav-link :href="route('inventory.index')" :active="request()->routeIs('inventory.index')">
-            @hasrole('admin')
-                {{ __('translations.inventory.title') }}
-            @endhasrole
-
-            @hasrole('user')
-                {{ __('translations.inventory.titleForUsers') }}
-            @endhasrole
-          </x-nav-link>
-        </li> 
-        @endcanany
         @can('users.index')
         <li class="nav-item">         
           <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
