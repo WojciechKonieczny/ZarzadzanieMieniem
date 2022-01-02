@@ -25,8 +25,8 @@ class InventoryUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        //-- niestety, JsValidator nie radzi sobie z datami, więc w requeście po stronie klienta, nie mogę zwalidować tych danych
-
+        // do aktualizacji mam oddzielny Request
+        
         // przyda sie do unikniecia bledu "ta wartosc juz istnieje" przy edycji i niezmienianiu serial_number
         // niestety jest to "pole dodatkowe" w tabeli pivot - nie jest ani skladnikiem obiektu User, ani Item
         $inventory = DB::table('item_user')->where('id', '=', $this->id)->first();

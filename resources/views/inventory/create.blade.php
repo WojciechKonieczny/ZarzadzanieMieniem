@@ -95,10 +95,10 @@
                         <div class="col-sm-10">
                             <input type="text" name="serial_number" class="form-control @error('serial_number') is-invalid @enderror" id="serial_number"
                                 placeholder="{{ __('translations.labels.select2.other.placeholders.serialnumber') }}"
-                                @if( isset($isEdit) && $isEdit == true )
-                                    value="{{ $oldSerial }}"
-                                @else
+                                @if( old('serial_number'))
                                     value="{{ old('serial_number') }}"
+                                @elseif( isset($isEdit) && $isEdit == true )
+                                    value="{{ $oldSerial }}"
                                 @endif
                             >
                             @error('serial_number')
@@ -114,10 +114,10 @@
                         <div class="col-sm-10">
                             <input type="date" name="purcharse_date" class="form-control @error('purcharse_date') is-invalid @enderror" max="{{ now()->format('Y-m-d') }}" id="purcharse_date" 
                                 
-                                @if( isset($isEdit) && $isEdit == true )
-                                    value="{{ $oldPurcharse }}"
-                                @elseif( old('purcharse_date') )
+                                @if( old('purcharse_date') )
                                     value="{{ old('purcharse_date') }}"
+                                @elseif( isset($isEdit) && $isEdit == true )
+                                    value="{{ $oldPurcharse }}"
                                 @endif
                             >
 
@@ -131,10 +131,11 @@
                         <label for="warranty_end" class="col-sm-2 col-form-label">{{ __('translations.inventory.attribute.warranty_end') }}:</label>
                         <div class="col-sm-10">
                             <input type="date" name="warranty_end" class="form-control @error('warranty_end') is-invalid @enderror" id="warranty_end" 
-                                @if( isset($isEdit) && $isEdit == true )
-                                    value="{{ $oldWarranty }}"
-                                @elseif( old('warranty_end') )
+                                
+                                @if( old('warranty_end') )
                                     value="{{ old('warranty_end') }}"
+                                @elseif( isset($isEdit) && $isEdit == true )
+                                    value="{{ $oldWarranty }}"
                                 @endif
                             >
                             @error('warranty_end')
@@ -150,10 +151,10 @@
                             <input type="date" name="assignment_date" class="form-control @error('assignment_date') is-invalid @enderror" max="{{ now()->format('Y-m-d') }}"
                                 id="assignment_date" 
 
-                                @if( isset($isEdit) && $isEdit == true )
-                                    value="{{ $oldAssignment }}"
-                                @elseif( old('assignment_date') )
+                                @if( old('assignment_date') )
                                     value="{{ old('assignment_date') }}"
+                                @elseif( isset($isEdit) && $isEdit == true )
+                                    value="{{ $oldAssignment }}"
                                 @else
                                     value="{{ now()->format('Y-m-d') }}"
                                 @endif
