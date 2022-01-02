@@ -79,7 +79,7 @@
                                                     button-class="btn btn-danger" :button-title="__('translations.inventory.labels.destroy')">
                                                     <i class="bi bi-trash"></i>
                                                 </x-confirm>
-                                        @endcan
+                                            @endcan
                                         </div>
                                     </td>
                                 @endhasrole
