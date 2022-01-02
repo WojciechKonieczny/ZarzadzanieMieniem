@@ -1,6 +1,9 @@
 <?php
 
 return [
+
+    'title' => 'Aplikacja do zarządzania mieniem',
+
     'menu' => [
         'log-viewer' => 'Logi',
         'admin-panel' => 'Panel administratora',

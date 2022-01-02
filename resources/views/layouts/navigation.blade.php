@@ -24,6 +24,13 @@
           </x-nav-link>
         </li> 
         @endcanany
+        @can('items.index')
+        <li class="nav-item">         
+          <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
+            {{ __('translations.items.title') }}
+          </x-nav-link>
+        </li> 
+        @endcan
         @can('manufacturers.index')
         <li class="nav-item">         
           <x-nav-link :href="route('manufacturers.index')" :active="request()->routeIs('manufacturers.index')">
@@ -42,13 +49,6 @@
         <li class="nav-item">         
           <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
             {{ __('translations.categories.title') }}
-          </x-nav-link>
-        </li> 
-        @endcan
-        @can('items.index')
-        <li class="nav-item">         
-          <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
-            {{ __('translations.items.title') }}
           </x-nav-link>
         </li> 
         @endcan
