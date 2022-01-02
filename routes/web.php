@@ -128,7 +128,7 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
          Route::put('{id}/restore', [ItemController::class, 'restore'])->where('id', '[0-9]+')->name('restore')->middleware(['permission:items.destroy']);
 
          // export
-         Route::get('export', [ItemController::class, 'export'])->name('export')->middleware(['permission:items.store']);
+         Route::get('export', [ItemController::class, 'export'])->name('export')->middleware(['permission:items.index']);
     });
 
     // routing dla mienia
@@ -149,6 +149,9 @@ Route::middleware( ['auth', 'verified'] )->group( function() {
 
         //usuwanie
         Route::delete('{id}', [InventoryController::class, 'destroy'])->where('id', '[0-9]+')->name('destroy')->middleware(['permission:itemsUsers.destroy']);
+
+        // export
+        Route::get('export', [InventoryController::class, 'export'])->name('export')->middleware(['permission:itemsUsers.index']);
     });
 
     // routing dla użytkowników

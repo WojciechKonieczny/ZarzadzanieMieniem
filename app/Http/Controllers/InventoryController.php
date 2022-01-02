@@ -9,7 +9,9 @@ use App\Models\Category;
 use App\Models\ModelOrName;
 use App\Models\Manufacturer;
 use Illuminate\Http\Request;
+use App\Exports\InventoryExport;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\Inventories\InventoryRequest;
 use App\Http\Requests\Inventories\InventoryUpdateRequest;
 use App\Http\Request\Inventories\InventoryWithoutDateRequest;
@@ -24,15 +26,6 @@ class InventoryController extends Controller
             'inventory.index', // nazwa szablony
             [
                 'items' => Item::with('manufacturer', 'modelorname', 'category', 'users')->withTrashed()->get()
-
-                // 'items' => DB::table('item_user')
-                //             ->join('items', 'item_user.item_id', 'items.id')
-                //             ->join('users', 'item_user.user_id', 'users.id')
-                //             ->join('categories', 'items.category_id', 'categories.id')
-                //             ->join('manufacturers', 'items.manufacturer_id', 'manufacturers.id')
-                //             ->join('model_or_names', 'items.model_or_name_id', 'model_or_names.id')
-                //             ->select('item_user.id', 'item_user.created_at', 'item_user.updated_at', 'item_user.deleted_at', 'manufacturers.name AS manufacturer', 'model_or_names.name AS model', 'categories.name AS category', 'item_user.serial_number', 'item_user.purcharse_date', 'item_user.warranty_end', 'item_user.assignment_date', 'users.email')
-                //             ->get()
             ]
         );
     }
@@ -134,5 +127,10 @@ class InventoryController extends Controller
             'model_or_name' => $item->modelorname->name,
             'serial_number' => $inventory->serial_number
         ]));
+    }
+
+    public function export() {
+        // generujemy excela na podstawie widoku, a nie kolekcji - nie musimy się martwić o mapowanie kluczy obcych itd., gdyż możemy wykorzystać widok, używany do wylistowania przedmiotów w przeglądarce
+        return Excel::download( new InventoryExport, 'inventory.xlsx' );
     }
 }
