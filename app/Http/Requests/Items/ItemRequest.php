@@ -33,7 +33,7 @@ class ItemRequest extends FormRequest
                 Rule::unique('items')->where( function($query){
                     return $query->where('manufacturer_id', $this->manufacturer_id)
                                 ->where('model_or_name_id', $this->model_or_name_id);
-                })->ignore($this->manufacturer_id)
+                })->ignore($this->item)
             ],
 
             'model_or_name_id' => ['required', 'integer', 'exists:model_or_names,id',

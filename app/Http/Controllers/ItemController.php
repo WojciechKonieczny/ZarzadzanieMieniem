@@ -69,7 +69,7 @@ class ItemController extends Controller
     }
 
     // wysylajace dane do bazy
-    public function update(ItemUpdateRequest $request, Item $item) {
+    public function update(ItemRequest $request, Item $item) {
 
         $item->fill(
             $request->all()

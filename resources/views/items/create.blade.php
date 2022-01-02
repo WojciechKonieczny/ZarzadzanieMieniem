@@ -7,7 +7,7 @@
     <x-slot name="scripts">
         <script src="{{ asset('js/items.js') }}"></script>
 
-        @if( isset($isEdit) )
+        {{-- @if( isset($isEdit) )
             {!!
                 JsValidator::formRequest('App\Http\Requests\Items\ItemUpdateRequest')
             !!}
@@ -15,7 +15,11 @@
             {!!
                 JsValidator::formRequest('App\Http\Requests\Items\ItemRequest')
             !!}
-        @endif
+        @endif --}}
+
+        {!!
+            JsValidator::formRequest('App\Http\Requests\Items\ItemRequest')    
+        !!}
     </x-slot>
 
     <div class="container">
