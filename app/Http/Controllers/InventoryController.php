@@ -120,7 +120,8 @@ class InventoryController extends Controller
         $item = Item::find($inventory->item_id);
 
         // kasuje z tabeli tylko dany rekord
-        $item->users()->where('item_user.id','=', $id)->delete();
+        // $item->users()->where('item_user.id','=', $id)->delete();
+        DB::table('item_user')->where('id', $id)->delete();
 
         return redirect()->route('inventory.index')->with( 'success', __('translations.inventory.toasts.success.destroy', [
             'manufacturer' => $item->manufacturer->name,
