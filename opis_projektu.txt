@@ -1,0 +1,20 @@
+Temat projektu: System do zarządzania mieniem
+
+Pracując w biurach klientów, zauważyłem, że wielu z nich nie ma narzędzia, w którym można byłoby zarządzać mieniem powierzonym pracownikom.
+Oczywiście istnieją aplikacje, które mogłyby się do tego nadać, ale zazwyczaj są bardzo rozbudowane i skomplikowane.
+W związku z tym wiele osób swoje zapiski prowadzi w arkuszu kalkulacyjnym. Nie jest to wydajne rozwiązanie.
+Mój system pozwoli administratorowi wprowadzać sprzęt (w tym przypadku IT) oraz przypisać go do konkretnej osoby, która będzie za niego odpowiedzialny.
+Aplikacja będzie miała 3 role dostępowe: gość (nie widzi żadnej zawartości, prócz systemu logowania oraz rejestracji), pracownik (podgląd na spis swojego mienia),
+administrator (zarządzanie sprzętem, użytkownikami). Wprowadzając nowe mienie do systemu, będzie trzeba podać dane, m.in.: numer seryjny (jeśli nie ma, to inwentarzowy), 
+kategorie (laptop/serwer itp.), producenta, model, datę zakupu,datę zakończenia gwarancji, osobę odpowiedzialną . Typ, producenta, model oraz użytkownika wybieramy z listy rozwijanej.
+
+Podstawowe funkcje:
+- CRUD producenta, modelu, sprzętu (administrator)
+- zarządzanie użytkownikami (administrator)
+- filtrowanie danych (administrator)
+- system autoryzacji
+- podgląd na przypisane do rzeczy (pracownik)
+
+W katalogu głównym aplikacji, zamieszczam strukturę bazy danych - baza.jpg
+
+https://dbdiagram.io/d/5cd82e7df7c5bb70c72ff85d
